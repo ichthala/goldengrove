@@ -6,12 +6,12 @@ gem 'rails', '3.2.13'
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
-gem 'pg'
 gem 'jquery-rails'
 gem 'backbone-on-rails'
 gem 'twitter'
 gem 'tweetstream'
 gem 'dotenv-rails'
+gem 'foundation-rails'
 
 # Gems used only for assets and not required
 # in production environments by default.
@@ -26,6 +26,10 @@ group :assets do
   gem 'uglifier', '>= 1.0.3'
 end
 
+group :production do
+  gem 'pg'
+end
+
 group :test do
   gem 'faker'
   gem 'capybara'
@@ -35,6 +39,7 @@ group :test do
 end
 
 group :development, :test do
+  gem 'sqlite3'
   gem 'rspec'
   gem 'factory_girl_rails'
   gem 'pry-rails'           # Causes rails console to open pry
