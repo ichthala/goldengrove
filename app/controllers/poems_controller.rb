@@ -80,4 +80,9 @@ class PoemsController < ApplicationController
       format.json { head :no_content }
     end
   end
+
+  private
+
+  def check_for_titles(poem)
+  end
 end
