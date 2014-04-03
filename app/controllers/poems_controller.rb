@@ -1,8 +1,8 @@
 class PoemsController < ApplicationController
-  # GET /poems
-  # GET /poems.json
+
+  before_filter :
   def index
-    @poems = Poem.all
+    @poems = Poem.all(limit: 30)
 
     respond_to do |format|
       format.html # index.html.erb
@@ -10,8 +10,6 @@ class PoemsController < ApplicationController
     end
   end
 
-  # GET /poems/1
-  # GET /poems/1.json
   def show
     @poem = Poem.find(params[:id])
 
@@ -21,8 +19,6 @@ class PoemsController < ApplicationController
     end
   end
 
-  # GET /poems/new
-  # GET /poems/new.json
   def new
     @poem = Poem.new
 
@@ -32,13 +28,6 @@ class PoemsController < ApplicationController
     end
   end
 
-  # GET /poems/1/edit
-  def edit
-    @poem = Poem.find(params[:id])
-  end
-
-  # POST /poems
-  # POST /poems.json
   def create
     @poem = Poem.new(params[:poem])
 
@@ -53,8 +42,6 @@ class PoemsController < ApplicationController
     end
   end
 
-  # PUT /poems/1
-  # PUT /poems/1.json
   def update
     @poem = Poem.find(params[:id])
 
@@ -69,8 +56,6 @@ class PoemsController < ApplicationController
     end
   end
 
-  # DELETE /poems/1
-  # DELETE /poems/1.json
   def destroy
     @poem = Poem.find(params[:id])
     @poem.destroy
