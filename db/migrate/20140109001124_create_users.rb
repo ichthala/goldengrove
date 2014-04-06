@@ -3,6 +3,7 @@ class CreateUsers < ActiveRecord::Migration
     create_table :users do |t|
     	t.string :twitter_handle
       t.string :name
+      t.string :email
       t.text :bio
       t.string :url
       t.integer :word_count

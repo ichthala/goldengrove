@@ -5,5 +5,5 @@ class Poem < ActiveRecord::Base
 
   validates :user, presence: true
   validates :source_user, length: {minimum: 1}
-  validates :text, length: {minimum: 1}
+  validates :text, length: {minimum: 1, maximum: 140}
 end

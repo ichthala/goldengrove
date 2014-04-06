@@ -43,6 +43,7 @@ ActiveRecord::Schema.define(:version => 20140109010707) do
   create_table "users", :force => true do |t|
     t.string   "twitter_handle"
     t.string   "name"
+    t.string   "email"
     t.text     "bio"
     t.string   "url"
     t.integer  "word_count"

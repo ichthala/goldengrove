@@ -108,6 +108,13 @@ GEM
     guard-rspec (4.2.3)
       guard (~> 2.1)
       rspec (>= 2.14, < 4.0)
+    haml (4.0.5)
+      tilt
+    hamlbars (2.1.1)
+      execjs (>= 1.2)
+      haml
+      sprockets (>= 2.0)
+      tilt
     handlebars_assets (0.15)
       execjs (>= 1.2.9)
       multi_json
@@ -276,6 +283,7 @@ DEPENDENCIES
   faker
   foundation-rails
   guard-rspec
+  hamlbars
   handlebars_assets
   jquery-rails
   launchy
