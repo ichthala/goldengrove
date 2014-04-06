@@ -1,8 +1,9 @@
 Goldengrove::Application.routes.draw do
-  
+
   root to: 'welcome#index'
 
-  resources :poems
+  get '/poems/new' => 'poems#new'
+  # resources :poems
   resources :users
 
   get '/about' => 'welcome#about'

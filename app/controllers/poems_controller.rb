@@ -27,7 +27,7 @@ class PoemsController < ApplicationController
     @poem = Poem.new
 
     respond_to do |format|
-      format.html # new.html.erb
+      format.html { render :index }
       format.json { render json: @poem }
     end
   end
