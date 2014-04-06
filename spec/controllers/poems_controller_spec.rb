@@ -6,8 +6,10 @@ describe PoemsController do
     it "populates an array of poems" do
       poem = create(:poem)
       get :index
-      expect(assigns(:poems)).to eq([poem])
+      expect(assigns(:poems)).to match_array([poem])
     end
+
+    it "returns the 30 most recent poems"
 
     it "renders the index (Salon) view" do
       get :index
@@ -23,7 +25,8 @@ describe PoemsController do
     end
 
     it "renders the show view" do
-      get :show, id: create(:contact)
+      poem = create(:poem)
+      get :show, id: poem
       expect(response).to render_template :show
     end
   end
