@@ -12,6 +12,7 @@ class Goldengrove.Views.TweetBox extends Backbone.View
     this
 
   render_items: (tweets) =>
-    _.each tweets, (tweet) =>
+    _.each tweets, (tweet) ->
+      console.log tweet
       tweet_view = new Goldengrove.Views.Tweet(tweet)
       $(@el).append(tweet_view.render().el)

@@ -1,6 +1,5 @@
 class PoemsController < ApplicationController
 
-  before_filter :
   def index
     @poems = Poem.all(limit: 30)
 
