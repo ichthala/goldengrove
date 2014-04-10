@@ -1,1 +1,13 @@
 This is a poem box.
+#blotter
+#punc-toolbar
+  #apostrophe.punc '
+  #comma.punc .
+  #question-mark.punc ?
+  #bang.punc !
+  #colon.punc :
+  #semicolon.punc ;
+  #newline.punc ¬
+  #delete delete
+  #clear clear
+%a#poem-submit.button.radius It's genius!

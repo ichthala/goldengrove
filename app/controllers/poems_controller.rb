@@ -33,7 +33,7 @@ class PoemsController < ApplicationController
     respond_to do |format|
       if @poem.save
         format.html { redirect_to @poem, notice: 'Poem was successfully created.' }
-        format.json { render json: @poem, status: :created, location: @poem }
+        format.json { render json: @poem, status: :created }
       else
         format.html { render action: "new" }
         format.json { render json: @poem.errors, status: :unprocessable_entity }

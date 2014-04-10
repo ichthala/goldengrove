@@ -2,7 +2,32 @@ class Goldengrove.Views.PoemBox extends Backbone.View
 
   template: HandlebarsTemplates['poems/poem_box']
 
+  events:
+    'click #delete': 'delete_word'
+    'click .punc': 'append_punc'
+    'click #poem-submit': 'save_and_share'
+
   render: =>
-    console.log 'poem box render'
     $(@el).html @template
     this
+
+  append_word: (word_div) =>
+    @$('#blotter').append(word_div)
+
+  delete_word: (e) =>
+    @$('#blotter :last-child').remove()
+
+  append_punc: (e) =>
+    @$('#blotter').append($(e.currentTarget).html())
+
+  save_and_share: (e) =>
+    text = ""
+    _.each @$('#blotter').children(), (element) =>
+      if $(element).hasClass('punc')
+        text = text.trim() + element.innerText + ' '
+      else
+        text += element.innerText + ' '
+    text = text.trim().split('¬').join('\n')
+    poem = new Goldengrove.Models.Poem
+    poem.set text: text
+    poem.save({url: poem.urlRoot})

@@ -2,17 +2,18 @@ class Goldengrove.Views.TweetBox extends Backbone.View
 
   template: HandlebarsTemplates['poems/tweet_box']
 
-  initialize: (tweets) ->
-    @tweets = tweets
+  initialize: (options) ->
+    @tweets = options.tweets
+    @poem_box = options.poem_box
 
   render: =>
-    console.log 'tweet box render'
     $(@el).html @template
     @render_items @tweets
     this
 
   render_items: (tweets) =>
-    _.each tweets, (tweet) ->
-      console.log tweet
-      tweet_view = new Goldengrove.Views.Tweet(tweet)
+    _.each tweets, (tweet) =>
+      tweet_view = new Goldengrove.Views.Tweet
+        tweet: tweet
+        poem_box: @poem_box
       $(@el).append(tweet_view.render().el)
