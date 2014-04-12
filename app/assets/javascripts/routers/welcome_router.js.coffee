@@ -8,7 +8,5 @@ class Goldengrove.Routers.Welcome extends Backbone.Router
     $('#welcome-container').html(view.render().el)
 
   poems_new: =>
-    console.log 'poems_new'
     view = new Goldengrove.Views.PoemsNew()
-    console.log view.render
     $('#poem-container').html(view.render().el)

@@ -2,9 +2,9 @@ Goldengrove::Application.routes.draw do
 
   root to: 'welcome#index'
 
+  match '/auth/twitter/callback', to: 'sessions#create'
   get '/poems/new' => 'poems#new'
   post '/poems' => 'poems#create'
-  # resource :poems
   resources :users
 
   get '/about' => 'welcome#about'
