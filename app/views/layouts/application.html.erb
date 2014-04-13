@@ -8,7 +8,12 @@
 </head>
 <body>
 
-<%= link_to "Sign in with Twitter", "/auth/twitter" %>
+<% if current_user %>
+  <%= link_to current_user.twitter_handle, profile_path(current_user.id) %>
+  <%= link_to 'Sign out', signout_path %>
+<% else %>
+  <%= link_to 'Sign in with Twitter', '/auth/twitter' %>
+<% end %>
 
 <%= yield %>
 

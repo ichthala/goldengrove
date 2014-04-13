@@ -3,9 +3,14 @@ Goldengrove::Application.routes.draw do
   root to: 'welcome#index'
 
   match '/auth/twitter/callback', to: 'sessions#create'
+  match 'signout', to: 'sessions#destroy', as: 'signout'
+  # todoxxx change this redirect to something specific
+  match 'auth/failure', to: redirect('/')
+
+  get '/users/:id' => 'users#show', as: 'profile'
+
   get '/poems/new' => 'poems#new'
   post '/poems' => 'poems#create'
-  resources :users
 
   get '/about' => 'welcome#about'
   get '/contact' => 'welcome#contact'

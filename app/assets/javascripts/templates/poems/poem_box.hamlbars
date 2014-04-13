@@ -10,4 +10,5 @@ This is a poem box.
   #newline.punc ¬
   #delete delete
   #clear clear
-%a#poem-submit.button.radius It's genius!
+%a#poem-submit.button.radius Save
+%a#poem-share.button.radius Save and Tweet

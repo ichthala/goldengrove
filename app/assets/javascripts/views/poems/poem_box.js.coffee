@@ -6,7 +6,8 @@ class Goldengrove.Views.PoemBox extends Backbone.View
     'click #delete': 'delete_word'
     'click #clear': 'clear_poem'
     'click .punc': 'append_punc'
-    'click #poem-submit': 'save_and_share'
+    'click #poem-submit': 'save_poem'
+    'click #poem-share': 'save_and_share'
 
   render: =>
     $(@el).html @template
@@ -23,6 +24,18 @@ class Goldengrove.Views.PoemBox extends Backbone.View
 
   clear_poem: =>
     @$('#blotter').children().remove()
+
+  save_poem: (e) =>
+    text = ""
+    _.each @$('#blotter').children(), (element) =>
+      if $(element).hasClass('punc')
+        text = text.trim() + element.innerText + ' '
+      else
+        text += element.innerText + ' '
+    text = text.trim().split('¬').join('\n')
+    poem = new Goldengrove.Models.Poem
+    poem.set text: text
+    poem.save({url: poem.urlRoot})
 
   save_and_share: (e) =>
     text = ""
