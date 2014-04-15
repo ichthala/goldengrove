@@ -28,32 +28,30 @@ class PoemsController < ApplicationController
   end
 
   def create
-    @poem = Poem.new(params[:poem])
+    poem = Poem.new(params[:poem])
+    poem.user = current_user
 
-    respond_to do |format|
-      if @poem.save
-        format.html { redirect_to @poem, notice: 'Poem was successfully created.' }
-        format.json { render json: @poem, status: :created }
-      else
-        format.html { render action: "new" }
-        format.json { render json: @poem.errors, status: :unprocessable_entity }
-      end
+    titles = Title.where(title: "Apprentice Wordsmith")
+
+    if poem.save
+      puts 'SAVED'
+      render status: 201, json: {success: "Contact created."}
     end
   end
 
-  def update
-    @poem = Poem.find(params[:id])
+  # def update
+  #   @poem = Poem.find(params[:id])
 
-    respond_to do |format|
-      if @poem.update_attributes(params[:poem])
-        format.html { redirect_to @poem, notice: 'Poem was successfully updated.' }
-        format.json { head :no_content }
-      else
-        format.html { render action: "edit" }
-        format.json { render json: @poem.errors, status: :unprocessable_entity }
-      end
-    end
-  end
+  #   respond_to do |format|
+  #     if @poem.update_attributes(params[:poem])
+  #       format.html { redirect_to @poem, notice: 'Poem was successfully updated.' }
+  #       format.json { head :no_content }
+  #     else
+  #       format.html { render action: "edit" }
+  #       format.json { render json: @poem.errors, status: :unprocessable_entity }
+  #     end
+  #   end
+  # end
 
   def destroy
     @poem = Poem.find(params[:id])

@@ -34,8 +34,15 @@ class Goldengrove.Views.PoemBox extends Backbone.View
         text += element.innerText + ' '
     text = text.trim().split('¬').join('\n')
     poem = new Goldengrove.Models.Poem
-    poem.set text: text
-    poem.save({url: poem.urlRoot})
+      text: text
+      source_user: 'source_user'
+    poem.save
+      url: poem.urlRoot
+      share: false
+      success: (response) =>
+        console.log response
+      error: (response) =>
+        console.log response
 
   save_and_share: (e) =>
     text = ""
@@ -45,6 +52,16 @@ class Goldengrove.Views.PoemBox extends Backbone.View
       else
         text += element.innerText + ' '
     text = text.trim().split('¬').join('\n')
-    poem = new Goldengrove.Models.Poem
-    poem.set text: text
-    poem.save({url: poem.urlRoot})
+    $.ajax
+      url: '/poems'
+      type: 'POST'
+      data: {
+        poem: {
+          text: text
+          source_user: 'source_user'
+        }
+        share: true
+      }
+      dataType: 'html'
+      # success: (response) =>
+      #   console.log 'saved!'
