@@ -25,6 +25,9 @@ class Goldengrove.Views.PoemBox extends Backbone.View
   clear_poem: =>
     @$('#blotter').children().remove()
 
+  my_success: (resp) ->
+    console.log 'success'
+
   save_poem: (e) =>
     text = ""
     _.each @$('#blotter').children(), (element) =>
@@ -36,13 +39,14 @@ class Goldengrove.Views.PoemBox extends Backbone.View
     poem = new Goldengrove.Models.Poem
       text: text
       source_user: 'source_user'
-    poem.save
-      url: poem.urlRoot
-      share: false
-      success: (response) =>
-        console.log response
-      error: (response) =>
-        console.log response
+    poem.save(
+      {
+        url: poem.urlRoot
+        share: false
+        success: =>
+          console.log 'success'
+      }
+    )
 
   save_and_share: (e) =>
     text = ""
