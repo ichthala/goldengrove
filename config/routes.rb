@@ -12,6 +12,8 @@ Goldengrove::Application.routes.draw do
   get '/poems/new' => 'poems#new'
   post '/poems' => 'poems#create'
 
+  get '/source_users' => 'source_users#index'
+
   get '/about' => 'welcome#about'
   get '/contact' => 'welcome#contact'
 

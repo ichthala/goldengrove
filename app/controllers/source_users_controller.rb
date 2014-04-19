@@ -1,3 +1,5 @@
+require 'twitter_service'
+
 class SourceUsersController < ApplicationController
 
   def index
