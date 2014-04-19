@@ -40,12 +40,13 @@ class Goldengrove.Views.PoemBox extends Backbone.View
       text: text
       source_user: 'source_user'
     poem.save(
-      {
-        url: poem.urlRoot
-        share: false
-        success: =>
-          console.log 'success'
-      }
+      null,
+      url: poem.urlRoot
+      share: false
+      success: (response) =>
+        console.log response
+      error: (response) =>
+        console.log response
     )
 
   save_and_share: (e) =>
