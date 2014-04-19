@@ -36,13 +36,15 @@ class Goldengrove.Views.PoemBox extends Backbone.View
     poem = new Goldengrove.Models.Poem
       text: text
       source_user: 'source_user'
-    poem.save
+    poem.save(
+      null,
       url: poem.urlRoot
       share: false
       success: (response) =>
         console.log response
       error: (response) =>
         console.log response
+    )
 
   save_and_share: (e) =>
     text = ""
