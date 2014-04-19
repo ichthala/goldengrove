@@ -34,8 +34,9 @@ class PoemsController < ApplicationController
     titles = Title.where(title: "Apprentice Wordsmith")
 
     if poem.save
-      puts 'SAVED'
-      render status: 201, json: {success: "Contact created."}
+      respond_to do |format|
+        format.json { render json: titles }
+      end
     end
   end
 
