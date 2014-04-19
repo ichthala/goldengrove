@@ -25,6 +25,9 @@ class Goldengrove.Views.PoemBox extends Backbone.View
   clear_poem: =>
     @$('#blotter').children().remove()
 
+  my_success: (resp) ->
+    console.log 'success'
+
   save_poem: (e) =>
     text = ""
     _.each @$('#blotter').children(), (element) =>
