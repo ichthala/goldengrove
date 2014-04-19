@@ -8,6 +8,8 @@ class Goldengrove.Views.PoemsNew extends Backbone.View
   render: =>
     console.log 'new render'
     $(@el).html @template
+    su_index = new Goldengrove.Views.SourceUsersIndex
+    @$('#random-box').append(su_index.el)
     this
 
   get_tweet_list: (e) =>
