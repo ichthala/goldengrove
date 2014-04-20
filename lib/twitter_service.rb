@@ -18,4 +18,8 @@ class TwitterService
     users
   end
 
+  def get_tweets(username, n = 30)
+    @client.user_timeline(username, count: n)
+  end
+
 end

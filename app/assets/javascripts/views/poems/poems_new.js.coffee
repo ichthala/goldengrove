@@ -1,25 +1,27 @@
 class Goldengrove.Views.PoemsNew extends Backbone.View
-  events:
-    'click #random-box': 'get_tweet_list'
-    'submit #src-search': 'get_tweet_list'
 
   template: HandlebarsTemplates['poems/new']
 
+  events:
+    'submit #src-search': 'get_tweet_list_from_search'
+
   render: =>
-    console.log 'new render'
     $(@el).html @template
     su_index = new Goldengrove.Views.SourceUsersIndex
+      poems_new_view: this
     @$('#random-box').append(su_index.el)
     this
 
-  get_tweet_list: (e) =>
+  get_tweet_list: (screen_name) =>
     # xxx ajax call to server to retrieve user tweets
-    tweets = [
-      "When I think about @sandimetz I always imagine her standing radiant and beatific amidst a horde of bearded men weeping about their compilers",
-      "The Eurasian magpie is one of the few animal species that recognizes itself in a mirror test.",
-      "Will RT whatever you want for supernatural horror books. Get at me. 8-)"
-    ]
-    @render_writing_view(tweets)
+    $.ajax
+      url: '/source_users/get_tweets'
+      type: 'GET'
+      dataType: 'json'
+      data:
+        screen_name: screen_name
+      complete: (data) =>
+        @render_writing_view(data.responseJSON)
 
   render_writing_view: (tweets) =>
     view = new Goldengrove.Views.PoemsWrite(tweets)

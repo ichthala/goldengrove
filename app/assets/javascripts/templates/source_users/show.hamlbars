@@ -1,4 +1,4 @@
-%p {{profile_image_url}}
+%img{:src => "{{profile_image_url}}"}
 %h3 {{screen_name}}
 %h4 {{name}}
 %p {{description}}

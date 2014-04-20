@@ -1,6 +1,7 @@
 %h1 Time to create.
-%p You can search for a user to inspire you...
-%input#src-search
-%p ...or choose one of the 10 random users we've found.
-#random-box
-  %h2 ichthala
+#new-left
+  %p You can search for a user to inspire you...
+  %input#src-search
+#new-right
+  %p ...or choose one of the 10 random users we've found.
+  #random-box
