@@ -31,13 +31,6 @@ describe PoemsController do
     end
   end
 
-  describe 'GET #new' do
-    it "renders the new poem view" do
-      get :new
-      expect(response).to render_template :new
-    end
-  end
-
   describe 'GET #random_users' do
     it "populates an array of 9 random users + horse_ebooks"
   end
