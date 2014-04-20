@@ -13,6 +13,7 @@ Goldengrove::Application.routes.draw do
   post '/poems' => 'poems#create'
 
   get '/source_users' => 'source_users#index'
+  get '/source_users/get_tweets' => 'source_users#get_tweets'
 
   get '/about' => 'welcome#about'
   get '/contact' => 'welcome#contact'

@@ -17,6 +17,7 @@ class Goldengrove.Views.PoemBox extends Backbone.View
     @$('#blotter').append(word_div)
 
   delete_word: (e) =>
+    console.log 'delete'
     @$('#blotter :last-child').remove()
 
   append_punc: (e) =>

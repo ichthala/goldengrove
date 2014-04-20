@@ -2,6 +2,9 @@ class Goldengrove.Views.TweetWord extends Backbone.View
 
   template: HandlebarsTemplates['poems/tweet_word']
 
+  tagName: 'span'
+  className: 'tweet-word'
+
   events:
     'click': 'append_to_poem'
 
@@ -15,4 +18,4 @@ class Goldengrove.Views.TweetWord extends Backbone.View
     this
 
   append_to_poem: =>
-    @poem_box.append_word($(@el).html())
+    @poem_box.append_word($(@el).clone())
