@@ -28,12 +28,32 @@ class PoemsController < ApplicationController
   end
 
   def create
-    poem = Poem.new(params[:poem])
-    poem.user = current_user
+    @poem = Poem.new(params[:poem])
+    @poem.user = current_user
 
     titles = Title.where(title: "Apprentice Wordsmith")
 
-    if poem.save
+    if params[:share]
+      token = current_user.twitter_oauth_token #||= ENV['YOUR_OAUTH_TOKEN']
+      secret = current_user.twitter_oauth_secret #||= ENV['YOUR_OAUTH_TOKEN_SECRET']
+
+      client = Twitter::REST::Client.new do |config|
+        config.consumer_key        = ENV["CONSUMER_KEY"]
+        config.consumer_secret     = ENV["CONSUMER_SECRET"]
+        config.access_token        = token
+        config.access_token_secret = secret
+      end
+
+      tweet_text = "#gldgv "
+      tweet_text << "#{@poem.source_user} "
+      tweet_text << "#{@poem.text.truncate(90)} "
+      tweet_text << "goldengrove.co/poems/#{@poem.id}"
+      # client.update(tweet_text)
+      puts "TWEET TEXT"
+      puts tweet_text
+    end
+
+    if @poem.save
       respond_to do |format|
         format.json { render json: titles }
       end

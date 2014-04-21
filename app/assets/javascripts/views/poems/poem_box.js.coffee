@@ -21,7 +21,10 @@ class Goldengrove.Views.PoemBox extends Backbone.View
     @$('#blotter :last-child').remove()
 
   append_punc: (e) =>
-    @$('#blotter').append($(e.currentTarget).html())
+    punc = $(e.currentTarget).html()
+    punc_view = new Goldengrove.Views.TweetWord
+      word: punc
+    @$('#blotter').append(punc_view.render().el)
 
   clear_poem: =>
     @$('#blotter').children().remove()
