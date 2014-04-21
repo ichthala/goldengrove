@@ -32,4 +32,9 @@ describe Poem do
     expect(poem).to have(1).errors_on(:text)
   end
 
+  it 'adds to user\'s word count after save' do
+    poem = create(:poem, text: 'here is some text')
+    expect(poem.user.word_count).to eq 4
+  end
+
 end

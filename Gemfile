@@ -49,9 +49,9 @@ group :development, :test do
   gem 'factory_girl_rails'
   gem 'pry-rails'           # Causes rails console to open pry
                             # https://github.com/rweng/pry-rails
-  gem 'pry-debugger'        # Adds step, next, finish, and continue commands and breakpoints
+  # gem 'pry-debugger'        # Adds step, next, finish, and continue commands and breakpoints
                             # https://github.com/nixme/pry-debugger
-  gem 'pry-stack_explorer'  # Navigate the call-stack
+  # gem 'pry-stack_explorer'  # Navigate the call-stack
                             # https://github.com/pry/pry-stack_explorer
   gem 'annotate'            # Annotate all your models, tests, fixtures, and factories
                             # https://github.com/ctran/annotate_models

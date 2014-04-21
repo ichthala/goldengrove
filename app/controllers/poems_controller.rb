@@ -31,11 +31,10 @@ class PoemsController < ApplicationController
     @poem = Poem.new(params[:poem])
     @poem.user = current_user
 
-    if @poem.save && params[:share]
+    if @poem.save
       TwitterService.new.share(user: current_user, poem: @poem) if params[:share]
+      titles = TitleChecker.new.check_for_titles(user: current_user, poem: @poem)
     end
-
-    titles = Title.where(title: "Apprentice Wordsmith")
 
     respond_to do |format|
       format.json { render json: titles }
