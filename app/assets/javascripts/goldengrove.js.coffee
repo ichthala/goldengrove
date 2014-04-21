@@ -4,7 +4,7 @@ window.Goldengrove =
   Views: {}
   Routers: {}
   initialize: ->
-    new Goldengrove.Routers.Welcome()
+    window.router = new Goldengrove.Routers.Welcome()
     Backbone.history.start
       pushState: true
 

@@ -29,6 +29,7 @@ class TwitterService
     token = user.twitter_oauth_token #||= ENV['YOUR_OAUTH_TOKEN']
     secret = user.twitter_oauth_secret #||= ENV['YOUR_OAUTH_TOKEN_SECRET']
 
+    # xxx refac so second client isn't created
     client = Twitter::REST::Client.new do |config|
       config.consumer_key        = ENV["CONSUMER_KEY"]
       config.consumer_secret     = ENV["CONSUMER_SECRET"]

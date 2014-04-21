@@ -3,7 +3,7 @@ class Goldengrove.Views.PoemsNew extends Backbone.View
   template: HandlebarsTemplates['poems/new']
 
   events:
-    'submit #src-search': 'get_tweet_list_from_search'
+    'click #src-search-button': 'get_tweet_list_from_search'
 
   render: =>
     $(@el).html @template
@@ -22,6 +22,12 @@ class Goldengrove.Views.PoemsNew extends Backbone.View
         screen_name: screen_name
       complete: (data) =>
         @render_writing_view(data.responseJSON)
+
+  # xxx refac
+  # submit event?
+  get_tweet_list_from_search: =>
+    screen_name = $('#src-search').val()
+    @get_tweet_list(screen_name)
 
   render_writing_view: (tweets) =>
     view = new Goldengrove.Views.PoemsWrite(tweets)
