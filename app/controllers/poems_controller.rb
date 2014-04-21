@@ -42,20 +42,6 @@ class PoemsController < ApplicationController
     end
   end
 
-  # def update
-  #   @poem = Poem.find(params[:id])
-
-  #   respond_to do |format|
-  #     if @poem.update_attributes(params[:poem])
-  #       format.html { redirect_to @poem, notice: 'Poem was successfully updated.' }
-  #       format.json { head :no_content }
-  #     else
-  #       format.html { render action: "edit" }
-  #       format.json { render json: @poem.errors, status: :unprocessable_entity }
-  #     end
-  #   end
-  # end
-
   def destroy
     @poem = Poem.find(params[:id])
     @poem.destroy
@@ -66,8 +52,4 @@ class PoemsController < ApplicationController
     end
   end
 
-  private
-
-  def check_for_titles(poem)
-  end
 end

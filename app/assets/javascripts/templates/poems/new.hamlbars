@@ -3,6 +3,7 @@
   #new-left.large-6.columns
     %p You can search for a user to inspire you...
     %input#src-search
+    #src-search-button.button.radius Go!
   #new-right.large-6.columns
     %p ...or choose one of the 10 random users we've found.
     #random-box

@@ -32,6 +32,7 @@ class Goldengrove.Views.PoemBox extends Backbone.View
   my_success: (resp) ->
     console.log 'success'
 
+  # xxx combine save_poem and save_and_share into one
   save_poem: (e) =>
     text = ""
     _.each @$('#blotter').children(), (element) =>
@@ -43,15 +44,17 @@ class Goldengrove.Views.PoemBox extends Backbone.View
     poem = new Goldengrove.Models.Poem
       text: text
       source_user: 'source_user'
-    poem.save(
-      null,
+    poem.save
+      null
       url: poem.urlRoot
       share: false
       success: (response) =>
-        console.log response
+        # xxx this is awful
+        titles = response.attributes[0]
+        @render_you_posted(titles: titles)
+        window.router.navigate('you_posted')
       error: (response) =>
         console.log response
-    )
 
   save_and_share: (e) =>
     text = ""
@@ -61,16 +64,18 @@ class Goldengrove.Views.PoemBox extends Backbone.View
       else
         text += element.innerText + ' '
     text = text.trim().split('¬').join('\n')
-    $.ajax
-      url: '/poems'
-      type: 'POST'
-      data: {
-        poem: {
-          text: text
-          source_user: 'source_user'
-        }
-        share: true
-      }
-      dataType: 'html'
-      # success: (response) =>
-      #   console.log 'saved!'
+    poem = new Goldengrove.Models.Poem
+      text: text
+      source_user: 'source_user'
+    poem.save
+      null
+      url: poem.urlRoot
+      share: true
+      success: (response) =>
+        console.log response
+        window.router.navigate('you_posted')
+      error: (response) =>
+        console.log response
+
+  render_you_posted: (options) =>
+    view = new Goldengrove.Views.YouPosted()
