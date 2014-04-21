@@ -31,9 +31,8 @@ class PoemsController < ApplicationController
     @poem = Poem.new(params[:poem])
     @poem.user = current_user
 
-    titles = Title.where(title: "Apprentice Wordsmith")
-
-    if params[:share]
+    if @poem.save && params[:share]
+      # TwitterService.new.share(@poem) if params[:share]
       token = current_user.twitter_oauth_token #||= ENV['YOUR_OAUTH_TOKEN']
       secret = current_user.twitter_oauth_secret #||= ENV['YOUR_OAUTH_TOKEN_SECRET']
 
@@ -45,18 +44,18 @@ class PoemsController < ApplicationController
       end
 
       tweet_text = "#gldgv "
-      tweet_text << "#{@poem.source_user} "
-      tweet_text << "#{@poem.text.truncate(90)} "
-      tweet_text << "goldengrove.co/poems/#{@poem.id}"
+      tweet_text << "#{poem.source_user} "
+      tweet_text << "#{poem.text.truncate(90)} "
+      tweet_text << "goldengrove.co/poems/#{poem.id}"
       # client.update(tweet_text)
       puts "TWEET TEXT"
       puts tweet_text
     end
 
-    if @poem.save
-      respond_to do |format|
-        format.json { render json: titles }
-      end
+    titles = Title.where(title: "Apprentice Wordsmith")
+
+    respond_to do |format|
+      format.json { render json: titles }
     end
   end
 
