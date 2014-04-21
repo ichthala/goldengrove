@@ -4,7 +4,6 @@ require 'twitter_service'
 class SourceUsersController < ApplicationController
 
   def index
-    console.log 'INDEX'
     usernames = TwitterUser.sample
     # xxx take this out when finished with testing
     @@users ||= TwitterService.new.get_users_from_usernames(usernames)
