@@ -6,15 +6,15 @@ class TitleChecker
   end
 
   def check_for_titles
-    titles = Title.all.map { |t| t.title }
+    all_titles = Title.all
     previous_earned_titles = @user.titles
-    titles_to_check = titles - previous_earned_titles
+    titles_to_check = all_titles - previous_earned_titles
     earned_titles = []
 
     titles_to_check.each do |title|
-      earned_titles << title if self.send("#{title.check}.to_sym")
+      earned_titles << title if self.send("#{title.check}".to_sym)
     end
-
+    # binding.pry
     earned_titles
   end
 
