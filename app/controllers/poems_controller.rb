@@ -32,24 +32,7 @@ class PoemsController < ApplicationController
     @poem.user = current_user
 
     if @poem.save && params[:share]
-      # TwitterService.new.share(@poem) if params[:share]
-      token = current_user.twitter_oauth_token #||= ENV['YOUR_OAUTH_TOKEN']
-      secret = current_user.twitter_oauth_secret #||= ENV['YOUR_OAUTH_TOKEN_SECRET']
-
-      client = Twitter::REST::Client.new do |config|
-        config.consumer_key        = ENV["CONSUMER_KEY"]
-        config.consumer_secret     = ENV["CONSUMER_SECRET"]
-        config.access_token        = token
-        config.access_token_secret = secret
-      end
-
-      tweet_text = "#gldgv "
-      tweet_text << "#{poem.source_user} "
-      tweet_text << "#{poem.text.truncate(90)} "
-      tweet_text << "goldengrove.co/poems/#{poem.id}"
-      # client.update(tweet_text)
-      puts "TWEET TEXT"
-      puts tweet_text
+      TwitterService.new.share(user: current_user, poem: @poem) if params[:share]
     end
 
     titles = Title.where(title: "Apprentice Wordsmith")

@@ -7,7 +7,6 @@ class SourceUsersController < ApplicationController
     usernames = TwitterUser.sample
     # xxx take this out when finished with testing
     @@users ||= TwitterService.new.get_users_from_usernames(usernames)
-    puts "USERS: #{@@users}"
     respond_to do |format|
       format.json { render json: @@users }
     end
