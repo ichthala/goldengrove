@@ -1,3 +1,5 @@
+require 'title_checker'
+
 class PoemsController < ApplicationController
 
   def index
@@ -33,7 +35,7 @@ class PoemsController < ApplicationController
 
     if @poem.save
       TwitterService.new.share(user: current_user, poem: @poem) if params[:share]
-      titles = TitleChecker.new.check_for_titles(user: current_user, poem: @poem)
+      titles = TitleChecker.new(user: current_user, poem: @poem).check_for_titles
     end
 
     respond_to do |format|
