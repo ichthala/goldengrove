@@ -41,20 +41,37 @@ class Goldengrove.Views.PoemBox extends Backbone.View
       else
         text += element.innerText + ' '
     text = text.trim().split('¬').join('\n')
-    poem = new Goldengrove.Models.Poem
-      text: text
-      source_user: 'source_user'
-    poem.save
-      null
-      url: poem.urlRoot
-      share: false
-      success: (response) =>
-        # xxx this is awful
-        titles = response.attributes[0]
-        @render_you_posted(titles: titles)
-        window.router.navigate('you_posted')
-      error: (response) =>
-        console.log response
+    # poem = new Goldengrove.Models.Poem
+    #   text: text
+    #   source_user: 'source_user'
+    $.ajax
+      url: '/poems'
+      type: 'POST'
+      dataType: 'json'
+      data:
+        poem:
+          text: text
+          source_user: '@source_user'
+        share: false
+      complete: (data) =>
+        titles = data.responseJSON
+        @render_you_posted
+          titles: titles
+          shared: false
+    # poem.save(
+    #   null,
+    #   url: poem.urlRoot
+    #   share: false
+    #   success: (response) =>
+    #     # debugger
+    #     # xxx this is awful
+    #     console.log response
+    #     titles = [response.attributes[0]]
+    #     @render_you_posted
+    #       titles: titles
+    #   error: (response) =>
+    #     console.log response
+    # )
 
   save_and_share: (e) =>
     text = ""
@@ -64,18 +81,21 @@ class Goldengrove.Views.PoemBox extends Backbone.View
       else
         text += element.innerText + ' '
     text = text.trim().split('¬').join('\n')
-    poem = new Goldengrove.Models.Poem
-      text: text
-      source_user: 'source_user'
-    poem.save
-      null
-      url: poem.urlRoot
-      share: true
-      success: (response) =>
-        console.log response
-        window.router.navigate('you_posted')
-      error: (response) =>
-        console.log response
+    $.ajax
+      url: '/poems'
+      type: 'POST'
+      dataType: 'json'
+      data:
+        poem:
+          text: text
+          source_user: '@source_user'
+        share: true
+      complete: (data) =>
+        titles = data.responseJSON
+        @render_you_posted
+          titles: titles
+          shared: true
 
   render_you_posted: (options) =>
-    view = new Goldengrove.Views.YouPosted()
+    view = new Goldengrove.Views.YouPosted(options)
+    $('#poem-container').html(view.render().el)
