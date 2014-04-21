@@ -1,14 +1,16 @@
-This is a poem box.
 #blotter
-#punc-toolbar
-  #apostrophe.punc '
-  #comma.punc .
-  #question-mark.punc ?
-  #bang.punc !
-  #colon.punc :
-  #semicolon.punc ;
-  #newline.punc ¬
-  #delete delete
-  #clear clear
-%a#poem-submit.button.radius Save
-%a#poem-share.button.radius Save and Tweet
+%ul#punc-toolbar
+  .button-group
+    %li#apostrophe.punc.button.small.radius '
+    %li#comma.punc.button.small.radius .
+    %li#question-mark.punc.button.small.radius ?
+    %li#bang.punc.button.small.radius !
+    %li#colon.punc.button.small.radius :
+    %li#semicolon.punc.button.small.radius ;
+    %li#newline.punc.button.small.radius ¬
+  .button-group
+    #delete.button.small.radius delete
+    #clear.button.small.radius clear
+.button-group
+  %a#poem-submit.button.radius Save
+  %a#poem-share.button.radius Save and Tweet
