@@ -1,0 +1,11 @@
+{{#if shared}}
+%h3 Congratulations! You've shared your art with the Twitterverse!
+{{else}}
+%h3 Congratulations! You've created a piece of Twitterature!
+{{/if}}
+{{#titles}}
+#titles-earned
+  %p You earned a title in the Kingdom of Goldengrove, too!
+{{/titles}}
+%a{{href: '/'}} Home
+%a{{href: '/poems'}} To the Salon

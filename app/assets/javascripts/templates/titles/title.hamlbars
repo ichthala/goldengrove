@@ -1,0 +1,2 @@
+%img.title-img{:src => "{{image}}"}
+%p {{description}}
