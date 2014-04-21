@@ -17,7 +17,6 @@ class Goldengrove.Views.PoemBox extends Backbone.View
     @$('#blotter').append(word_div)
 
   delete_word: (e) =>
-    console.log 'delete'
     @$('#blotter :last-child').remove()
 
   append_punc: (e) =>
@@ -29,9 +28,6 @@ class Goldengrove.Views.PoemBox extends Backbone.View
   clear_poem: =>
     @$('#blotter').children().remove()
 
-  my_success: (resp) ->
-    console.log 'success'
-
   # xxx combine save_poem and save_and_share into one
   save_poem: (e) =>
     text = ""
@@ -41,9 +37,6 @@ class Goldengrove.Views.PoemBox extends Backbone.View
       else
         text += element.innerText + ' '
     text = text.trim().split('¬').join('\n')
-    # poem = new Goldengrove.Models.Poem
-    #   text: text
-    #   source_user: 'source_user'
     $.ajax
       url: '/poems'
       type: 'POST'
@@ -58,20 +51,6 @@ class Goldengrove.Views.PoemBox extends Backbone.View
         @render_you_posted
           titles: titles
           shared: false
-    # poem.save(
-    #   null,
-    #   url: poem.urlRoot
-    #   share: false
-    #   success: (response) =>
-    #     # debugger
-    #     # xxx this is awful
-    #     console.log response
-    #     titles = [response.attributes[0]]
-    #     @render_you_posted
-    #       titles: titles
-    #   error: (response) =>
-    #     console.log response
-    # )
 
   save_and_share: (e) =>
     text = ""
