@@ -2,17 +2,36 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+#blotter {
+  height: 435px;
+  border: 1px solid black;
+  border-radius: 3px;
+}
+
 h1 {
   text-align: center;
 }
 
 #poem-box {
-  float: left;
   width: 45%;
+  padding: 0 20px 0 20px;
+  margin: 20px 0 20px 0;
+}
+
+#punc-toolbar {
+  text-align: center;
 }
 
 #random-box {
   background-color: #ffffbb;
+}
+
+.row {
+  max-width: 80.5rem;
+}
+
+#save-buttons {
+  text-align: center;
 }
 
 .title-img {
@@ -25,11 +44,15 @@ h1 {
 
 .tweet {
   margin-bottom: 5px;
+  border: 1px solid black;
 }
 
 #tweet-box {
-  float: left;
   width: 45%;
+  padding: 0 20px 0 20px;
+  margin: 20px 0 20px 0;
+  height: 602px;
+  overflow: scroll;
 }
 
 .tweet-word {

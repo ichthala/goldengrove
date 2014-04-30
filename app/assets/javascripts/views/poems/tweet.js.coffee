@@ -2,8 +2,8 @@ class Goldengrove.Views.Tweet extends Backbone.View
 
   template: HandlebarsTemplates['poems/tweet']
 
-  tagName: 'li'
-  className: 'tweet'
+  # tagName: 'li'
+  # className: 'tweet'
 
   initialize: (options) =>
     @tweet = options.tweet
@@ -21,4 +21,4 @@ class Goldengrove.Views.Tweet extends Backbone.View
       word_view = new Goldengrove.Views.TweetWord
         word: word
         poem_box: @poem_box
-      $(@el).append(word_view.render().el)
+      @$('.tweet').append(word_view.render().el)
