@@ -1,0 +1,8 @@
+/ I don't understand this
+#user-profile
+- if @user
+  :javascript
+    Goldengrove.CurrentUser = #{@user.to_json};
+- if @titles
+  :javascript
+    Goldengrove.CurrentUser.titles = #{@titles.to_json};

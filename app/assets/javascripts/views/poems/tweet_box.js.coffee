@@ -2,7 +2,8 @@ class Goldengrove.Views.TweetBox extends Backbone.View
 
   template: HandlebarsTemplates['poems/tweet_box']
 
-  tagName: 'ul'
+  id: 'tweet-box'
+  className: 'large-6 columns'
 
   initialize: (options) ->
     @tweets = options.tweets

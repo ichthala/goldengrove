@@ -2,6 +2,9 @@ class Goldengrove.Views.PoemBox extends Backbone.View
 
   template: HandlebarsTemplates['poems/poem_box']
 
+  id: 'poem-box'
+  className: 'large-6 columns'
+
   events:
     'click #delete': 'delete_word'
     'click #clear': 'clear_poem'

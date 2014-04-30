@@ -14,7 +14,6 @@ class TitleChecker
     titles_to_check.each do |title|
       earned_titles << title if self.send("#{title.check}".to_sym)
     end
-    # binding.pry
     earned_titles
   end
 
