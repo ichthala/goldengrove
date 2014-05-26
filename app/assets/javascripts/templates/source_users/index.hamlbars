@@ -1,1 +1,1 @@
-%ul#random-box.example-orbit-content{:'data-orbit' => ''}
+%ul#random-box{:'data-orbit' => ''}
