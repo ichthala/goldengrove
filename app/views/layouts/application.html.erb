@@ -8,26 +8,44 @@
 </head>
 <body>
 
-<nav class="top-bar">
+<!-- Make this Haml somehow -->
+<nav class="top-bar" data-topbar>
   <ul class="title-area">
     <li class="name">
       <%= link_to 'Goldengrove', '/' %>
     </li>
-  </ul>
-  <ul class="left">
-    <li><%= link_to 'Salon', '/poems' %></li>
-    <li><%= link_to 'About', '/about' %></li>
-  </ul>
-  <ul class="right">
-    <li>
-      <% if current_user %>
-        <%= link_to current_user.twitter_handle, profile_path(current_user.id) %>
-        <%= link_to 'Sign out', signout_path %>
-      <% else %>
-        <%= link_to 'Sign in with Twitter', '/auth/twitter' %>
-      <% end %>
+    <li class="toggle-topbar menu-icon">
+      <a href="#"><span>Menu</span></a>
     </li>
   </ul>
+
+  <section class="top-bar-section">
+
+    <!-- Right Nav Section -->
+    <ul class="right">
+      <% if current_user %>
+        <li>
+          <%= link_to current_user.twitter_handle, profile_path(current_user.id) %>
+        </li>
+        <li>
+          <%= link_to 'Sign out', signout_path %>
+        </li>
+      <% else %>
+        <li>
+          <%= link_to 'Sign in with Twitter', '/auth/twitter' %>
+        </li>
+      <% end %>
+    </ul>
+
+    <!-- Left Nav Section -->
+    <ul class="left">
+      <li><a href="#"><%= link_to 'Salon', '/poems' %></a></li>
+      <li><a href="#"><%= link_to 'Create', '/poems/new' %></a></li>
+      <li><a href="#"><%= link_to 'About', '/about' %></a></li>
+    </ul>
+
+  </section>
+
 </nav>
 
 <%= yield %>
