@@ -8,9 +8,10 @@ class Goldengrove.Views.TweetBox extends Backbone.View
   initialize: (options) ->
     @tweets = options.tweets
     @poem_box = options.poem_box
+    @source_user = @tweets[0].user
 
   render: =>
-    $(@el).html @template
+    $(@el).html @template @source_user
     @render_items @tweets
     this
 
@@ -19,4 +20,4 @@ class Goldengrove.Views.TweetBox extends Backbone.View
       tweet_view = new Goldengrove.Views.Tweet
         tweet: tweet
         poem_box: @poem_box
-      $(@el).append(tweet_view.render().el)
+      @$('#inner-tweet-box').append(tweet_view.render().el)
