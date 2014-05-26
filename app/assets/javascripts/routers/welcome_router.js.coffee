@@ -12,6 +12,7 @@ class Goldengrove.Routers.Welcome extends Backbone.Router
     view = new Goldengrove.Views.PoemsNew()
     $('#poem-container').html(view.render().el)
 
-  user_profile: =>
-    view = new Goldengrove.Views.UsersShow()
-    $('#user-profile').html(view.render().el)
+  user_profile: (id) =>
+    view = new Goldengrove.Views.UsersShow
+      id: id
+    $('#users-container').html(view.render().el)

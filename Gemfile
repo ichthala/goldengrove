@@ -14,7 +14,7 @@ gem 'tweetstream'
 gem 'omniauth-twitter'
 gem 'foundation-rails'
 gem 'haml-rails'
-# gem 'thin'
+gem 'thin'
 
 # Gems used only for assets and not required
 # in production environments by default.
