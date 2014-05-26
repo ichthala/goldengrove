@@ -2,7 +2,7 @@ class Goldengrove.Views.SourceUser extends Backbone.View
 
   template: HandlebarsTemplates['source_users/show']
 
-  className: 'source-user'
+  tagName: 'li'
 
   events:
     'click': 'get_tweet_list'
@@ -13,6 +13,7 @@ class Goldengrove.Views.SourceUser extends Backbone.View
 
   render: =>
     $(@el).html @template @source_user
+    $(@el).attr('data-orbit-slide', @source_user.screen_name)
     this
 
   get_tweet_list: =>

@@ -2,6 +2,8 @@ class Goldengrove.Views.SourceUsersIndex extends Backbone.View
 
   template: HandlebarsTemplates['source_users/index']
 
+  className: 'orbit-container'
+
   initialize: (options) =>
     @poems_new_view = options.poems_new_view
     @users = {}
@@ -14,9 +16,12 @@ class Goldengrove.Views.SourceUsersIndex extends Backbone.View
         @render()
 
   render: =>
+    $(@el).html @template
     _.each @users, (user) =>
       su_view = new Goldengrove.Views.SourceUser
         user: user
         poems_new_view: @poems_new_view
-      $(@el).append(su_view.render().el)
+        # refac
+      console.log  su_view.render().el
+      @$('#random-box').append(su_view.render().el)
     this
