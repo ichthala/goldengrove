@@ -6,26 +6,41 @@ $body-bg: url('bg.png');
 $header-font: Times New Roman, serif;
 $body-font: Helvetica Neue, sans serif;
 
-h1, h2, h3, h4 {
-  font-family: $header-font;
-}
-
-p, span {
-  font-family: $body-font;
-}
-
-body {
-  background-image: url('bg.png');
-}
-
 #blotter {
   height: 435px;
   border: 1px solid black;
   border-radius: 3px;
 }
 
+body {
+  background-image: url('bg.png');
+}
+
+.center-p {
+  text-align: center;
+}
+
 h1 {
   text-align: center;
+}
+
+h1, h2, h3, h4 {
+  font-family: $header-font;
+}
+
+#inner-tweet-box {
+  height: 436px;
+  overflow: scroll;
+  padding: 0 10px 0 10px;
+}
+
+#intro {
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+p, span {
+  font-family: $body-font;
 }
 
 #poem-box {
@@ -68,12 +83,6 @@ h1 {
   padding: 0 20px 0 20px;
   margin: 20px 0 20px 0;
   height: 602px;
-}
-
-#inner-tweet-box {
-  height: 436px;
-  overflow: scroll;
-  padding: 0 10px 0 10px;
 }
 
 .tweet-word {
