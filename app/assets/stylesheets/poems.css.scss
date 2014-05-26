@@ -2,6 +2,22 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+$body-bg: url('bg.png');
+$header-font: Times New Roman, serif;
+$body-font: Helvetica Neue, sans serif;
+
+h1, h2, h3, h4 {
+  font-family: $header-font;
+}
+
+p, span {
+  font-family: $body-font;
+}
+
+body {
+  background-image: url('bg.png');
+}
+
 #blotter {
   height: 435px;
   border: 1px solid black;
@@ -52,13 +68,19 @@ h1 {
   padding: 0 20px 0 20px;
   margin: 20px 0 20px 0;
   height: 602px;
+}
+
+#inner-tweet-box {
+  height: 436px;
   overflow: scroll;
+  padding: 0 10px 0 10px;
 }
 
 .tweet-word {
-  background-color: #ffffbb;
+  background-color: #D6CEA3;
   border-radius: 3px;
   float: left;
   margin: 2px;
+  padding: 0 4px 0 4px;
 }
 
