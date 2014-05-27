@@ -21,7 +21,5 @@ class Goldengrove.Views.SourceUsersIndex extends Backbone.View
       su_view = new Goldengrove.Views.SourceUser
         user: user
         poems_new_view: @poems_new_view
-        # todoxxx refac
-      console.log  su_view.render().el
-      @$('#random-box').append(su_view.render().el)
+        @el.append(su_view.render().el)
     this

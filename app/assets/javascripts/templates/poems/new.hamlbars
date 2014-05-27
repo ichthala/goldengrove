@@ -6,3 +6,5 @@
     #src-search-button.button.radius Go!
   #new-right.large-6.columns
     %p ...or choose one of the 10 random users we've found.
+    / %ul#random-box{:'data-orbit' => ''}
+    /   %li Loading...

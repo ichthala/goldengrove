@@ -17,5 +17,4 @@ class Goldengrove.Views.SourceUser extends Backbone.View
     this
 
   get_tweet_list: =>
-    # xxx refac
     @poems_new_view.get_tweet_list(@source_user.screen_name)

@@ -9,7 +9,7 @@ class Goldengrove.Views.PoemsNew extends Backbone.View
     $(@el).html @template
     su_index = new Goldengrove.Views.SourceUsersIndex
       poems_new_view: this
-    @$('#new-right').append(su_index.el)
+    @$('#new-right').append(su_index.render().el)
     this
 
   get_tweet_list: (screen_name) =>
