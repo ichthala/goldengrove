@@ -6,14 +6,14 @@ $body-bg: url('bg.png');
 $h1-font: Princess Sofia, cursive;
 $body-font: Helvetica Neue, sans serif;
 
-$my-yellow: #f7f187;
-$my-light-yellow: #fefbc0;
-$my-green: #a5dc78;
-$my-light-green: #dafcbe;
+$dark1: #59a283;
+$light1: #baf7e6;
+$dark2: #6a6aad;
+$light2: #c4c4f8;
 
 #blotter {
   height: 435px;
-  border: 1px solid black;
+  border: 2px solid $dark2;
   border-radius: 3px;
 }
 
@@ -27,15 +27,11 @@ body {
 
 h1 {
   text-align: center;
-  color: $my-green;
+  color: $dark2;
 }
 
 h1, h2 {
   font-family: $h1-font;
-}
-
-h3 {
-  /*font-family: $h1-font;*/
 }
 
 h6 {
@@ -69,7 +65,7 @@ p, span {
 }
 
 #random-box {
-  background-color: #ffffbb;
+  background-color: $light1;
 }
 
 .row {
@@ -90,9 +86,8 @@ p, span {
 
 .tweet-row {
   margin: 0 0 5px 0 !important;
-  border: 3px solid $my-green;
-  border-radius: 5px;
-  /*background-color: $my-light-yellow;*/
+  border: 2px solid $dark2;
+  border-radius: 3px;
 }
 
 #tweet-box {
@@ -103,10 +98,9 @@ p, span {
 }
 
 .tweet-word {
-  background-color: $my-light-yellow;
+  background-color: $light1;
   border-radius: 3px;
   float: left;
   margin: 2px;
   padding: 0 4px 0 4px;
 }
-
