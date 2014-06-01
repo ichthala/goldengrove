@@ -3,7 +3,7 @@ class Goldengrove.Views.Tweet extends Backbone.View
   template: HandlebarsTemplates['poems/tweet']
 
   # tagName: 'li'
-  # className: 'tweet'
+  className: 'row tweet-row'
 
   initialize: (options) =>
     @tweet = options.tweet

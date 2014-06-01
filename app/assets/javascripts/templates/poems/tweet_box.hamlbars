@@ -1,4 +1,3 @@
 %h1 {{screen_name}}
-%h3
-  %small Click on any word to add it to your poem.
+%h6 Click on any word to add it to your poem.
 #inner-tweet-box
