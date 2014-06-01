@@ -3,8 +3,13 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 $body-bg: url('bg.png');
-$header-font: Times New Roman, serif;
+$h1-font: Princess Sofia, cursive;
 $body-font: Helvetica Neue, sans serif;
+
+$my-yellow: #f7f187;
+$my-light-yellow: #fefbc0;
+$my-green: #a5dc78;
+$my-light-green: #dafcbe;
 
 #blotter {
   height: 435px;
@@ -13,7 +18,7 @@ $body-font: Helvetica Neue, sans serif;
 }
 
 body {
-  background-image: url('bg.png');
+  /*background-image: url('bg.png');*/
 }
 
 .center-p {
@@ -22,10 +27,20 @@ body {
 
 h1 {
   text-align: center;
+  color: $my-green;
 }
 
-h1, h2, h3, h4 {
-  font-family: $header-font;
+h1, h2 {
+  font-family: $h1-font;
+}
+
+h3 {
+  /*font-family: $h1-font;*/
+}
+
+h6 {
+  text-align: center;
+  color: #000;
 }
 
 #inner-tweet-box {
@@ -73,9 +88,11 @@ p, span {
   color: #fff;
 }
 
-.tweet {
-  margin-bottom: 5px;
-  border: 1px solid black;
+.tweet-row {
+  margin: 0 0 5px 0 !important;
+  border: 3px solid $my-green;
+  border-radius: 5px;
+  /*background-color: $my-light-yellow;*/
 }
 
 #tweet-box {
@@ -86,7 +103,7 @@ p, span {
 }
 
 .tweet-word {
-  background-color: #D6CEA3;
+  background-color: $my-light-yellow;
   border-radius: 3px;
   float: left;
   margin: 2px;

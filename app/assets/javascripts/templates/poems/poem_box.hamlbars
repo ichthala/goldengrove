@@ -1,6 +1,5 @@
 %h1 Your Blotter
-%h3
-  %small Your burgeoning poem will appear here.
+%h6 Your burgeoning poem will appear here.
 #blotter
 #punc-toolbar
   .row
