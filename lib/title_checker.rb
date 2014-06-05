@@ -11,7 +11,6 @@ class TitleChecker
     titles_to_check = all_titles - previous_earned_titles
     earned_titles = []
 
-    binding.pry
     titles_to_check.each do |title|
       earned_titles << title if self.send("#{title.check}".to_sym)
     end
