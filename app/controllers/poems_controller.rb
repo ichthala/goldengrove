@@ -34,6 +34,7 @@ class PoemsController < ApplicationController
     @poem.user = current_user
 
     if @poem.save
+      binding.pry
       TwitterService.new.share(user: current_user, poem: @poem) if params[:share]
       titles = TitleChecker.new(user: current_user, poem: @poem).check_for_titles
       current_user.titles << titles
