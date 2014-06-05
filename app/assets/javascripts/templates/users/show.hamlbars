@@ -1,5 +1,3 @@
-%h1 {{twitter_handle}}
-.bio {{bio}}
+%h1 {{user.twitter_handle}}
+.bio {{user.bio}}
 .titles {{titles}}
-
-we made it

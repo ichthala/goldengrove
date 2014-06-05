@@ -15,15 +15,16 @@ class UsersController < ApplicationController
   def show
     # todoxxx move this logic into only the json request
     @user = User.find(params[:id])
-    puts 'USER'
-    p @user
-    puts 'titles'
-    puts @user.titles
     @titles = @user.titles
+
+    @user_with_titles = {
+      user: @user,
+      titles: @titles
+    }
 
     respond_to do |format|
       format.html { render :index }
-      format.json { render json: @user }
+      format.json { render json: @user_with_titles }
     end
   end
 
