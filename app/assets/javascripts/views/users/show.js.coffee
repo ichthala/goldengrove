@@ -4,7 +4,6 @@ class Goldengrove.Views.UsersShow extends Backbone.View
 
   initialize: (options) =>
     @user = options.model
-    console.log @user
 
   render: =>
     $(@el).html @template @user

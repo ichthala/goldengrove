@@ -79,6 +79,5 @@ class Goldengrove.Views.PoemBox extends Backbone.View
           shared: true
 
   render_you_posted: (options) =>
-    console.log 'render you posted'
     view = new Goldengrove.Views.YouPosted(options)
     $('#poem-container').html(view.render().el)
