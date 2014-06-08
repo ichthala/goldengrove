@@ -1,3 +1,15 @@
-%h1 {{user.twitter_handle}}
-.bio {{user.bio}}
-.titles {{titles}}
+%h1 {{twitter_handle}}
+.bio Bio: {{bio}}
+
+%h1 {{twitter_handle}}'s Titles
+.titles
+  {{#each titles}}
+  %img{:src => "/assets/{{this.image}}"}
+  %p {{this.description}}
+  {{/each}}
+
+%h1 {{twitter_handle}}'s Poems
+.poems
+  {{#each poems}}
+  %p {{this.text}}
+  {{/each}}
