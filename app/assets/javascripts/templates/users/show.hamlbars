@@ -4,7 +4,7 @@
 %h1 {{twitter_handle}}'s Titles
 .titles
   {{#each titles}}
-  %img{:src => "/assets/{{this.image}}"}
+  %img.title-img{:src => "/assets/{{this.image}}"}
   %p {{this.description}}
   {{/each}}
 
