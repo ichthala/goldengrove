@@ -1,8 +1,13 @@
 class Goldengrove.Routers.Welcome extends Backbone.Router
   routes:
     '': 'index'
+    'poems': 'poems_index'
     'poems/new': 'poems_new'
     'users/:id': 'user_profile'
+
+  poems_index: =>
+    view = new Goldengrove.Views.PoemsIndex()
+    $('#poem-container').html(view.render().el)
 
   index: =>
     view = new Goldengrove.Views.WelcomeIndex()
