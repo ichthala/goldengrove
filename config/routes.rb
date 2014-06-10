@@ -10,6 +10,7 @@ Goldengrove::Application.routes.draw do
   get '/users' => 'users#index'
   get '/users/:id' => 'users#show', as: 'profile'
 
+  get '/poems' => 'poems#index'
   get '/poems/new' => 'poems#new'
   post '/poems' => 'poems#create'
 
