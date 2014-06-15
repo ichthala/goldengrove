@@ -20,12 +20,9 @@ class Goldengrove.Routers.Welcome extends Backbone.Router
     $('#poem-container').html(view.render().el)
 
   user_profile: (id) =>
-    # todoxxx cleanup
-    $.ajax
-      url: "/users/#{id}"
-      type: 'GET'
-      dataType: 'json'
-      success: (data) ->
-        view = new Goldengrove.Views.UsersShow
-          model: data
-        $('#user-container').html(view.render().el)
+    user = new Goldengrove.Models.User
+      id: id
+    user.fetch()
+    view = new Goldengrove.Views.UsersShow
+      model: user
+    $('#user-container').html(view.render().el)
