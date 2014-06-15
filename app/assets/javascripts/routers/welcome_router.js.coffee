@@ -6,8 +6,10 @@ class Goldengrove.Routers.Welcome extends Backbone.Router
     'users/:id': 'user_profile'
 
   poems_index: =>
-    view = new Goldengrove.Views.PoemsIndex()
-    $('#poem-container').html(view.render().el)
+    collection = new Goldengrove.Collections.Poems()
+    view = new Goldengrove.Views.PoemsIndex(collection: collection)
+    collection.fetch
+      reset: true
 
   index: =>
     view = new Goldengrove.Views.WelcomeIndex()
@@ -18,6 +20,7 @@ class Goldengrove.Routers.Welcome extends Backbone.Router
     $('#poem-container').html(view.render().el)
 
   user_profile: (id) =>
+    # todoxxx cleanup
     $.ajax
       url: "/users/#{id}"
       type: 'GET'
