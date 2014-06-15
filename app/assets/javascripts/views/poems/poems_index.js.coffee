@@ -1,14 +1,11 @@
 class Goldengrove.Views.PoemsIndex extends Backbone.View
 
+  el: '#poem-container'
+
   template: HandlebarsTemplates['poems/index']
 
+  initialize: (options) =>
+    @collection.on 'reset', @render
+
   render: =>
-    $(@el).html @template
-    console.log 'render'
-    $.ajax
-      url: '/poems'
-      type: 'GET'
-      dataType: 'json'
-      success: (data) =>
-        console.log data
-        $(@el).html @template
+    $(@el).html @template @collection
