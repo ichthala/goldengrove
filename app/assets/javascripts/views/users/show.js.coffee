@@ -7,7 +7,5 @@ class Goldengrove.Views.UsersShow extends Backbone.View
     @user.on 'change', @render
 
   render: =>
-    console.log 'render'
-    console.log @user
     $(@el).html @template @user.toJSON()
     this
