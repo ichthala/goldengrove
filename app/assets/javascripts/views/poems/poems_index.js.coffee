@@ -8,4 +8,5 @@ class Goldengrove.Views.PoemsIndex extends Backbone.View
     @collection.on 'reset', @render
 
   render: =>
+    console.log @collection
     $(@el).html @template @collection

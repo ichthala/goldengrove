@@ -1,3 +1,6 @@
 %h1 The Salon
 %h6 Enjoy the work of friends & compatriots.
 #poems-index
+{{#each models}}
+%p {{this.attributes.text}}
+{{/each}}
