@@ -3,7 +3,7 @@ require 'title_checker'
 class PoemsController < ApplicationController
 
   def index
-    @poems = Poem.all(limit: 30)
+    @poems = Poem.all(limit: 30).each.as_json(include: [:user])
 
     respond_to do |format|
       format.html # index.html.erb
