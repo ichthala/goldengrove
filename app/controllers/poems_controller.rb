@@ -3,7 +3,8 @@ require 'title_checker'
 class PoemsController < ApplicationController
 
   def index
-    @poems = Poem.all(limit: 30).each.as_json(include: [:user])
+    # todoxxx this is probably slow, preload associations?
+    @poems = Poem.find(:all, :order => 'id desc', limit: 30).each.as_json(include: [:user])
 
     respond_to do |format|
       format.html # index.html.erb
