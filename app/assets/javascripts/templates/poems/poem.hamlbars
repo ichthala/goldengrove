@@ -1,0 +1,10 @@
+.poem
+  %p {{text}}
+  %ul
+    {{#if user.twitter_handle}}
+    %li By @{{user.twitter_handle}}
+    {{else}}
+    %li By anonymous
+    {{/if}}
+    %li From {{source_user}}
+    %li Written {{created_at}}
