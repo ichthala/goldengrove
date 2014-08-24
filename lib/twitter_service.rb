@@ -9,8 +9,8 @@ class TwitterService
     end
   end
 
-  def get_users_from_usernames(usernames)
-    users = []
+  def get_users
+    usernames = TwitterUser.sample
     # xxx add rescue for Twitter errors
     usernames.each do |username|
       users << @client.user(username)
