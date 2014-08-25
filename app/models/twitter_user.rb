@@ -4,7 +4,7 @@ class TwitterUser < ActiveRecord::Base
   # xxx add error for case n < TwitterUser.all.size
   def self.sample(n = 10)
     usernames = []
-    offsets = []
+    offsets = Set.new
     count = TwitterUser.count
 
     n.times do |num|
@@ -13,6 +13,7 @@ class TwitterUser < ActiveRecord::Base
         offset = rand(count)
       end
       usernames << TwitterUser.first(offset: offset).screen_name
+      offsets << offset
     end
 
     usernames
