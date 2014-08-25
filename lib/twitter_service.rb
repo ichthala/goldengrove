@@ -11,6 +11,8 @@ class TwitterService
 
   def get_users(n)
     usernames = TwitterUser.sample(n)
+    puts 'USERNAMES!!'
+    puts usernames
     users = []
     # xxx add rescue for Twitter errors
     usernames.each do |username|
@@ -19,7 +21,7 @@ class TwitterService
         p 'USER IS:'
         p user
       rescue
-        user = 'whatever'
+        'WE ARE IN A RESCUE'
       end
       users << user
     end
