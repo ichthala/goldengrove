@@ -6,9 +6,9 @@ class SourceUsersController < ApplicationController
   def index
     # usernames = TwitterUser.sample
     # xxx take this out when finished with testing
-    @@users ||= TwitterService.new.get_users
+    @users ||= TwitterService.new.get_users 10
     respond_to do |format|
-      format.json { render json: @@users }
+      format.json { render json: @users }
     end
   end
 
