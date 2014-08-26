@@ -9,7 +9,4 @@
   {{/each}}
 
 %h1 {{twitter_handle}}'s Poems
-.poems
-  {{#each poems}}
-  %p {{this.text}}
-  {{/each}}
+#user-poems
