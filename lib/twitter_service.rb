@@ -18,7 +18,9 @@ class TwitterService
       while user.nil?
         begin
           user = @client.user(username)
-        rescue Twitter::Error
+        rescue Twitter::Error => e
+          puts "\n\n\n\n\nWE GOT AN ERROR"
+          puts e.message
         end
       end
       users << user
