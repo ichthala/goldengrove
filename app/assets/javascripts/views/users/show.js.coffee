@@ -4,14 +4,14 @@ class Goldengrove.Views.UsersShow extends Backbone.View
 
   initialize: (options) =>
     @user = options.model
-    @user.on 'change', @render
+    @user.on 'poems_set', @render
 
   render: =>
     $(@el).html @template @user.toJSON()
     @poems = @user.toJSON().poems
     if @poems
       _.each @poems, (poem) =>
-        console.log poem
+        # console.log poem
         view = new Goldengrove.Views.PoemView(model: poem).render()
         @$('#user-poems').append(view)
     this

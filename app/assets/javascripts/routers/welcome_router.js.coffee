@@ -22,7 +22,10 @@ class Goldengrove.Routers.Welcome extends Backbone.Router
   user_profile: (id) =>
     user = new Goldengrove.Models.User
       id: id
-    user.fetch()
+    user.fetch
+      success: =>
+        console.log 'success'
+        user.set_poem_collection
     view = new Goldengrove.Views.UsersShow
       model: user
     $('#user-container').html(view.render().el)
