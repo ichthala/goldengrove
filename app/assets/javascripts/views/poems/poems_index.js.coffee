@@ -10,5 +10,5 @@ class Goldengrove.Views.PoemsIndex extends Backbone.View
   render: =>
     $(@el).html @template
     @collection.each (poem) =>
-      view = new Goldengrove.Views.PoemView(model: poem).render()
-      @$('#poems-index').append(view)
+      view = new Goldengrove.Views.PoemView(model: poem)
+      @$('#poems-index').append(view.render().el)
