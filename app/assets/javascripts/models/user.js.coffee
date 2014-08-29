@@ -6,4 +6,3 @@ class Goldengrove.Models.User extends Backbone.Model
     @poems = _.map @attributes.poems, (poem) ->
       new Goldengrove.Models.Poem(poem)
     @poems = new Goldengrove.Collections.Poems(@poems)
-    @trigger 'poems_set'
