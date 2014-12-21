@@ -47,7 +47,7 @@ class Goldengrove.Views.PoemBox extends Backbone.View
       data:
         poem:
           text: text
-          source_user: '@source_user'
+          source_user: Goldengrove.current_source_user.get('screen_name')
         share: false
       complete: (data) =>
         titles = data.responseJSON
@@ -70,7 +70,7 @@ class Goldengrove.Views.PoemBox extends Backbone.View
       data:
         poem:
           text: text
-          source_user: '@source_user'
+          source_user: Goldengrove.current_source_user.get('screen_name')
         share: true
       complete: (data) =>
         titles = data.responseJSON

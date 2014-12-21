@@ -31,6 +31,8 @@ class PoemsController < ApplicationController
   end
 
   def create
+    # xxx refac
+    params[:poem][:source_user] = "@#{params[:poem][:source_user]}"
     @poem = Poem.new(params[:poem])
     @poem.user = current_user
 
