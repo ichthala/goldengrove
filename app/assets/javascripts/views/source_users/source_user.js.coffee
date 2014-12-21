@@ -8,13 +8,12 @@ class Goldengrove.Views.SourceUser extends Backbone.View
     'click': 'get_tweet_list'
 
   initialize: (options) =>
-    @source_user = options.user
     @poems_new_view = options.poems_new_view
 
   render: =>
-    $(@el).html @template @source_user
+    $(@el).html @template @model.toJSON()
     this
 
   get_tweet_list: =>
     # xxx refac
-    @poems_new_view.get_tweet_list(@source_user.screen_name)
+    @poems_new_view.get_tweet_list_from_model(@model)

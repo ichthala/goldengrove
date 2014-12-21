@@ -4,7 +4,6 @@ require 'twitter_service'
 class SourceUsersController < ApplicationController
 
   def index
-    # usernames = TwitterUser.sample
     # xxx change this to instance var when finished with testing
     @@users ||= TwitterService.new.get_users 10
     respond_to do |format|
