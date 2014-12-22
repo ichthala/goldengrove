@@ -3,13 +3,16 @@ class Goldengrove.Views.YouPosted extends Backbone.View
   template: HandlebarsTemplates['poems/you_posted']
 
   initialize: (options) =>
-    @titles = options.titles
+    # @titles = options.titles
     @shared = options.shared
 
   render: =>
+    console.log 'TITLES:'
+    console.log @collection
     $(@el).html @template this
-    _.each @titles, (title) =>
+    @collection.each (title) =>
+      console.log 'a title'
       title_view = new Goldengrove.Views.Title
-        title: title
+        model: title
       @$('#titles-earned').append(title_view.render().el)
     this

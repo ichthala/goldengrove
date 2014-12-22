@@ -52,7 +52,7 @@ class Goldengrove.Views.PoemBox extends Backbone.View
       complete: (data) =>
         titles = data.responseJSON
         @render_you_posted
-          titles: titles
+          collection: new Goldengrove.Collections.Titles(titles)
           shared: false
 
   save_and_share: (e) =>
@@ -75,9 +75,10 @@ class Goldengrove.Views.PoemBox extends Backbone.View
       complete: (data) =>
         titles = data.responseJSON
         @render_you_posted
-          titles: titles
+          collection: new Goldengrove.Collections.Titles(titles)
           shared: true
 
   render_you_posted: (options) =>
+    console.log 'render_you_posted'
     view = new Goldengrove.Views.YouPosted(options)
     $('#poem-container').html(view.render().el)
