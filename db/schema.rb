@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20140421052443) do
+ActiveRecord::Schema.define(:version => 20141222004539) do
 
   create_table "poems", :force => true do |t|
     t.text     "text"
@@ -30,15 +30,15 @@ ActiveRecord::Schema.define(:version => 20140421052443) do
     t.string   "check"
   end
 
-  create_table "titles_users", :force => true do |t|
-    t.integer "title_id"
-    t.integer "user_id"
-  end
-
   create_table "twitter_users", :force => true do |t|
     t.string   "screen_name"
     t.datetime "created_at",  :null => false
     t.datetime "updated_at",  :null => false
+  end
+
+  create_table "user_titles", :id => false, :force => true do |t|
+    t.integer "user_id"
+    t.integer "title_id"
   end
 
   create_table "users", :force => true do |t|

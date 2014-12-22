@@ -5,7 +5,8 @@ class User < ActiveRecord::Base
                   :twitter_oauth_secret
 
   has_many :poems
-  has_and_belongs_to_many :titles
+  has_many :user_titles
+  has_many :titles, through: :user_titles
 
   validates :twitter_handle, presence: true
   after_initialize :init
