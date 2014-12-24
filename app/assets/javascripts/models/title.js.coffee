@@ -1,3 +1,3 @@
-class Goldengrove.Models.Titles extends Backbone.Model
+class Goldengrove.Models.Title extends Backbone.Model
 
   urlRoot: '/titles'

@@ -3,7 +3,6 @@ class Goldengrove.Views.YouPosted extends Backbone.View
   template: HandlebarsTemplates['poems/you_posted']
 
   initialize: (options) =>
-    # @titles = options.titles
     @shared = options.shared
 
   render: =>
