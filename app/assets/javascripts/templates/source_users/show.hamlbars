@@ -1,5 +1,6 @@
 %img{:src => "{{profile_image_url}}"}
-%h2 {{screen_name}}
+%h2
+  %a{:href => "http://twitter.com/{{screen_name}}"} {{screen_name}}
 %h4 {{name}}
 %p {{description}}
 %p {{status.text}}
