@@ -1,9 +1,15 @@
 %h1 Time to create.
+.row.large-centered.large-6.columns
+  %p First, select a user whose tweets you will use as your poetic inspiration. Choose someone you know or a total stranger — you'll have the choice of whether or not to share your poem when you're done.
 .row
-  #new-left.large-6.columns
-    %p You can search for a user to inspire you...
-    %input#src-search
-    #src-search-button.button.radius Go!
-  #new-right.large-6.columns
-    %p ...or choose one of the 10 random users we've found.
-    #random-box
+  #new-left.large-centered.large-6.columns
+    %h2 Search for a specific user to inspire you...
+.row#user-search.large-centered.large-6.columns
+  %input#src-search
+  #src-search-button.button.radius Go!
+.row
+  #new-right.large-centered.large-6.columns
+    %h2 ...or choose from the random users we've found.
+.row#random-box.large-10.columns.large-centered
+.row.large-10.columns.large-centered
+  #repopulate-button.button.radius None of these! Try again!
