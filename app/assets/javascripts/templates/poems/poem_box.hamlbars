@@ -1,6 +1,7 @@
 %h1 Your Blotter
 %h6 Your burgeoning poem will appear here.
 #blotter
+  .row#row-1
 #punc-toolbar
   .row
     .button-group.small-12.large-10.small-centered.columns
