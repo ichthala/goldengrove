@@ -3,13 +3,14 @@ class Goldengrove.Views.PoemsNew extends Backbone.View
   template: HandlebarsTemplates['poems/new']
 
   events:
-    'click #src-search-button': 'get_tweet_list_from_search'
+    'click #src-search-button' : 'get_tweet_list_from_search'
+    'click #repopulate-button' : 'repopulate_source_users'
 
   render: =>
     $(@el).html @template
-    su_index = new Goldengrove.Views.SourceUsersIndex
+    @su_index = new Goldengrove.Views.SourceUsersIndex
       poems_new_view: this
-    @$('#random-box').append(su_index.el)
+    @$('#random-box').append(@su_index.el)
     this
 
   # xxx refactor duplicated code
@@ -45,6 +46,9 @@ class Goldengrove.Views.PoemsNew extends Backbone.View
   get_tweet_list_from_search: =>
     screen_name = $('#src-search').val()
     @get_tweet_list_from_screen_name(screen_name)
+
+  repopulate_source_users: =>
+    @su_index.repopulate_source_users()
 
   render_writing_view: (tweets) =>
     view = new Goldengrove.Views.PoemsWrite(tweets)

@@ -2,6 +2,9 @@ class Goldengrove.Views.SourceUsersIndex extends Backbone.View
 
   template: HandlebarsTemplates['source_users/index']
 
+  events:
+    'click #repopulate-button' : 'repopulate_source_users'
+
   initialize: (options) =>
     @poems_new_view = options.poems_new_view
     @users = {}
@@ -11,7 +14,12 @@ class Goldengrove.Views.SourceUsersIndex extends Backbone.View
     @collection.fetch
       reset: true
 
+  repopulate_source_users: =>
+    @collection.fetch
+      reset: true
+
   render: =>
+    $(@el).empty()
     @collection.each (source_user) =>
       su_view = new Goldengrove.Views.SourceUser
         model: source_user

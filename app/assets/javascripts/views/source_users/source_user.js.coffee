@@ -5,7 +5,7 @@ class Goldengrove.Views.SourceUser extends Backbone.View
   className: 'source-user'
 
   events:
-    'click': 'get_tweet_list'
+    'click .source-user-select' : 'get_tweet_list'
 
   initialize: (options) =>
     @poems_new_view = options.poems_new_view
