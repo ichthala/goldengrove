@@ -10,7 +10,7 @@
       %li#bang.punc.button.small.radius !
       %li#colon.punc.button.small.radius :
       %li#semicolon.punc.button.small.radius ;
-      %li#newline.punc.button.small.radius ¬
+      %li#newline.button.small.radius ¬
   .row
     .button-group.small-12.large-6.small-centered.columns
       #delete.button.small.radius delete

@@ -8,6 +8,7 @@ class Goldengrove.Views.PoemBox extends Backbone.View
   events:
     'click #delete': 'delete_word'
     'click #clear': 'clear_poem'
+    'click #newline': 'newline'
     'click .punc': 'append_punc'
     'click #poem-submit': 'save_poem'
     'click #poem-share': 'save_and_share'
@@ -27,6 +28,9 @@ class Goldengrove.Views.PoemBox extends Backbone.View
     punc_view = new Goldengrove.Views.TweetWord
       word: punc
     @$('#blotter').append(punc_view.render().el)
+
+  newline: (e) =>
+    @$('#blotter').append('')
 
   clear_poem: =>
     @$('#blotter').children().remove()
