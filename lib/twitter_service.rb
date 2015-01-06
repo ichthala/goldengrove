@@ -15,12 +15,15 @@ class TwitterService
 
     usernames.each do |username|
       user = nil
-      while user.nil?
+      i = 0
+      while user.nil? && i < 5
         begin
           user = @client.user(username)
         rescue Twitter::Error => e
           puts "\n\n\n\n\nWE GOT AN ERROR"
           puts e.message
+        ensure
+          i += 1
         end
       end
       users << user
