@@ -2,7 +2,7 @@ class Goldengrove.Views.SourceUser extends Backbone.View
 
   template: HandlebarsTemplates['source_users/show']
 
-  className: 'source-user'
+  # className: 'source-user'
 
   events:
     'click .source-user-select' : 'get_tweet_list'

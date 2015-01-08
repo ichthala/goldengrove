@@ -3,13 +3,13 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 $body-bg: url('bg.png');
-$h1-font: Princess Sofia, cursive;
+$h1-font: Mountains of Christmas, cursive;
 $body-font: Open Sans, sans serif;
 
 $dark1: #127058;
 $light1: #afe3d6;
 $dark2: #3cc3a2;
-$light2: #efdfb8;
+$light2: #d8fcf0;
 
 #blotter {
   height: 435px;
@@ -28,11 +28,14 @@ body {
 h1 {
   text-align: center;
   color: $dark2;
-}
-
-h1, h2 {
   font-family: $h1-font;
   text-align: center;
+}
+
+h2 {
+  font-family: $body-font;
+  text-align: center;
+  font-size: 1.5rem;
 }
 
 h6 {
@@ -49,10 +52,6 @@ h6 {
 #intro {
   max-width: 600px;
   margin: 0 auto;
-}
-
-.top-bar .name h1 a {
-  color: $dark2;
 }
 
 p, span {
@@ -77,10 +76,6 @@ p, span {
   text-align: center;
 }
 
-#random-box {
-  background-color: $light1;
-}
-
 .row {
   max-width: 80.5rem;
 }
@@ -89,12 +84,29 @@ p, span {
   text-align: center;
 }
 
+/*.source-user {
+  padding: 10px;
+}
+*/
+.source-user-inner {
+  background-color: $light2;
+  border-radius: 10px;
+  border: 2px solid $dark2;
+  width: 30%;
+  margin: 10px;
+  padding: 10px;
+}
+
 .title-img {
   width: 300px;
 }
 
 .top-bar {
   color: #fff;
+}
+
+.top-bar .name h1 a {
+  color: $dark2;
 }
 
 .tweet-row {
