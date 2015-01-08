@@ -8,7 +8,7 @@ $body-font: Open Sans, sans serif;
 
 $dark1: #127058;
 $light1: #afe3d6;
-$dark2: #ac811b;
+$dark2: #3cc3a2;
 $light2: #efdfb8;
 
 #blotter {
@@ -32,6 +32,7 @@ h1 {
 
 h1, h2 {
   font-family: $h1-font;
+  text-align: center;
 }
 
 h6 {
@@ -48,6 +49,10 @@ h6 {
 #intro {
   max-width: 600px;
   margin: 0 auto;
+}
+
+.top-bar .name h1 a {
+  color: $dark2;
 }
 
 p, span {
@@ -111,4 +116,12 @@ p, span {
   float: left;
   margin: 2px;
   padding: 0 4px 0 4px;
+}
+
+.twitter-name {
+  text-align: center;
+}
+
+#user-search {
+  margin: 0 auto;
 }

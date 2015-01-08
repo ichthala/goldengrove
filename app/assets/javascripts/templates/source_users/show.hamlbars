@@ -1,10 +1,11 @@
 .large-4.columns
-  .row
+  .row.text-center
     .source-user-select.button.radius This one!
-  .row
+  .row.text-center
     %img{:src => "{{profile_image_url}}"}
+  .row
     %h2
       %a{:href => "http://twitter.com/{{screen_name}}", :target => "_blank"} {{screen_name}}
-    %h4 {{name}}
+    %h4.twitter-name {{name}}
     %p {{description}}
     %p {{status.text}}

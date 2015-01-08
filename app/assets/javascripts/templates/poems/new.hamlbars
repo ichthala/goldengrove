@@ -4,12 +4,12 @@
 .row
   #new-left.large-centered.large-6.columns
     %h2 Search for a specific user to inspire you...
-.row#user-search.large-centered.large-6.columns
+.row#user-search.large-centered.large-6.columns.text-center
   %input#src-search
   #src-search-button.button.radius Go!
 .row
   #new-right.large-centered.large-6.columns
     %h2 ...or choose from the random users we've found.
 .row#random-box.large-10.columns.large-centered
-.row.large-10.columns.large-centered
+.row.large-10.large-centered.text-center
   #repopulate-button.button.radius None of these! Try again!
