@@ -3,7 +3,7 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 $body-bg: url('bg.png');
-$h1-font: Mountains of Christmas, cursive;
+$h1-font: Princess Sofia, cursive;
 $body-font: Open Sans, sans serif;
 
 $dark1: #127058;
@@ -74,6 +74,10 @@ p, span {
 
 #punc-toolbar {
   text-align: center;
+}
+
+#quill-img {
+  width: 50%;
 }
 
 .row {
