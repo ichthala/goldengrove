@@ -16,6 +16,6 @@
     .button-group.small-12.large-6.small-centered.columns
       #delete.button.small.radius delete
       #clear.button.small.radius clear
-#save-buttons.row.button-group.small-12.large-6.small-centered.columns
+#save-buttons.row.button-group.small-12.large-6.small-centered.columns.text-center
   %a#poem-submit.button.radius Save
   %a#poem-share.button.radius Save and Tweet

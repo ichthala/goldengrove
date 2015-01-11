@@ -54,16 +54,23 @@ h6 {
   margin: 0 auto;
 }
 
-p, span {
+p, span, ul {
   font-family: $body-font;
 }
 
 .poem {
   border: 2px solid $dark2;
-  border-radius: 3px;
+  border-radius: 5px;
   width: 33%;
   margin: 0 auto;
   margin-bottom: 20px;
+  padding: 20px;
+
+  ul {
+    list-style-type: none;
+    text-align: right;
+    margin: 0;
+  }
 }
 
 #poem-box {
@@ -76,22 +83,10 @@ p, span {
   text-align: center;
 }
 
-#quill-img {
-  width: 50%;
-}
-
 .row {
   max-width: 80.5rem;
 }
 
-#save-buttons {
-  text-align: center;
-}
-
-/*.source-user {
-  padding: 10px;
-}
-*/
 .source-user-inner {
   background-color: $light2;
   border-radius: 10px;
