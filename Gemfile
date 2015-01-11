@@ -41,6 +41,7 @@ group :test do
   gem 'launchy'
   gem 'shoulda-matchers'
   gem 'selenium-webdriver'
+  gem 'timecop'
 end
 
 group :development, :test do
