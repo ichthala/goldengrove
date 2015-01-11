@@ -32,9 +32,17 @@ describe Poem do
     expect(poem).to have(1).errors_on(:text)
   end
 
-  it 'adds to user\'s word count after save' do
+  it "adds to user's word count after save" do
     poem = create(:poem, text: 'here is some text')
     expect(poem.user.word_count).to eq 4
+  end
+
+  describe '#as_json' do
+    it 'outputs created_at in correct format' do
+      Timecop.freeze(Time.local(2014, 5, 4, 5, 5, 0))
+      poem = create(:poem)
+      expect(poem.as_json["created_at"]).to eq "May 4, 2014, 9:05 am"
+    end
   end
 
 end
