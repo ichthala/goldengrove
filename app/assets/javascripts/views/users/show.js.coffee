@@ -7,7 +7,9 @@ class Goldengrove.Views.UsersShow extends Backbone.View
     @user.set_poem_collection()
 
   render: =>
-    $(@el).html @template @user.toJSON()
+    user_json = @user.toJSON()
+    $(@el).html @template user_json
+    @$('.titles').addClass("small-block-grid-#{user_json.titles.length}")
     @render_poems()
     this
 
