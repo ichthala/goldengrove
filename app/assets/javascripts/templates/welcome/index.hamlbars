@@ -8,6 +8,6 @@
 
     %p Click on the quill to begin your creative quest.
 
-  .small-10.small-offset-1.large-4.columns.end
+  .small-10.small-offset-1.large-4.large-offset-0.columns.end
     %a{href: '/poems/new'}
       %img#quill-img{src: '/assets/quill.gif'}
