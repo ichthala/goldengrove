@@ -13,11 +13,12 @@ class UsersController < ApplicationController
   # GET /users/1
   # GET /users/1.json
   def show
-    # todoxxx move this logic into only the json request
-    @user = User.find(params[:id]).to_json(include: [:poems, :titles])
     respond_to do |format|
       format.html { render :index }
-      format.json { render json: @user }
+      format.json do
+        @user = User.find(params[:id]).to_json(include: [:poems, :titles])
+        render json: @user
+      end
     end
   end
 
