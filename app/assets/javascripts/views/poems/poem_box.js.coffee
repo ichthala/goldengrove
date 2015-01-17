@@ -46,10 +46,10 @@ class Goldengrove.Views.PoemBox extends Backbone.View
     text = ""
     _.each @$('#blotter').children(), (element) =>
       if $(element).hasClass('punc')
-        text = text.trim() + element.innerText + ' '
+        text = text.trim() + element.innerText + "\n"
       else
-        text += element.innerText + ' '
-    text = text.trim().split('¬').join('\n')
+        text += element.innerText + "\n"
+    text = text.trim()
     $.ajax
       url: '/poems'
       type: 'POST'

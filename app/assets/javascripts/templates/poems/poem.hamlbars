@@ -1,5 +1,5 @@
 .poem
-  %p {{text}}
+  %p {{{text_for_display}}}
   %ul
     {{#if user.twitter_handle}}
     %li
