@@ -14,7 +14,30 @@ class Poem < ActiveRecord::Base
 
   def as_json(opts = {})
     super(opts).merge(
-      { "created_at" => created_at.strftime("%B %-e, %Y, %-l:%M %P") }
+      { "created_at_str" => pretty_timestamp(:created_at) }
     )
   end
+
+  # override serializable_hash in order to properly represent
+  # poem when it's included as a nested resource
+  def serializable_hash(opts = {})
+    hash = super(opts)
+    # binding.pry
+    h = hash.merge(
+      { "created_at_str" => pretty_timestamp(:created_at) }
+    )
+    h
+  end
+
+  private
+
+  def pretty_timestamp(property_name)
+    if (time = self.send(property_name)).is_a? ActiveSupport::TimeWithZone
+      time.strftime("%B %-e, %Y, %-l:%M %P")
+    else
+      Rails.logger.warn "Warning: non-TimeWithZone object passed to Poem#pretty_timestamp"
+      time.to_s
+    end
+  end
+
 end

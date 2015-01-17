@@ -11,4 +11,4 @@
     %li
       From the tweets of
       %a{:href => "http://twitter.com/{{plain_source_user}}", :target => "_blank"}{{source_user}}
-    %li Written {{created_at}}
+    %li Written {{created_at_str}}

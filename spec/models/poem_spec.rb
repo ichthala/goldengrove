@@ -28,6 +28,7 @@ describe Poem do
   end
 
   it 'is invalid with text of length >140' do
+    pending 'Not sure I like this restriction'
     poem = build(:poem, text: Faker::Lorem.characters(141))
     expect(poem).to have(1).errors_on(:text)
   end
@@ -38,10 +39,18 @@ describe Poem do
   end
 
   describe '#as_json' do
+    it 'outputs created_at_str in correct format' do
+      Timecop.freeze(Time.local(2014, 5, 4, 5, 5, 0))
+      poem = create(:poem)
+      expect(poem.as_json["created_at_str"]).to eq("May 4, 2014, 9:05 am")
+    end
+  end
+
+  describe '#serializable_hash' do
     it 'outputs created_at in correct format' do
       Timecop.freeze(Time.local(2014, 5, 4, 5, 5, 0))
       poem = create(:poem)
-      expect(poem.as_json["created_at"]).to eq "May 4, 2014, 9:05 am"
+      expect(poem.serializable_hash["created_at_str"]).to eq("May 4, 2014, 9:05 am")
     end
   end
 
