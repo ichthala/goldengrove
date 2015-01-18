@@ -7,11 +7,6 @@
 .row
   .small-10.small-offset-1.large-6.large-offset-3.columns
     %ul.titles.text-center
-      {{#each titles}}
-      %li
-        %img.title-img{:src => "/assets/{{this.image}}"}
-        %p {{this.description}}
-      {{/each}}
       {{^titles}}
       %p {{twitter_handle}} has no titles yet.
       {{/titles}}

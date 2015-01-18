@@ -2,7 +2,13 @@ class Goldengrove.Models.User extends Backbone.Model
 
   urlRoot: '/users'
 
-  set_poem_collection: =>
-    @poems = _.map @attributes.poems, (poem) ->
+  parse: (response) ->
+    poems = _.map response.poems, (poem) ->
       new Goldengrove.Models.Poem(poem)
-    @poems = new Goldengrove.Collections.Poems(@poems)
+    response.poems = new Goldengrove.Collections.Poems(poems)
+
+    titles = _.map response.titles, (title) ->
+      new Goldengrove.Models.Title(title)
+    response.titles = new Goldengrove.Collections.Titles(titles)
+
+    response

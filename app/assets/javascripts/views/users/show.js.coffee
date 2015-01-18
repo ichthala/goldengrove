@@ -2,19 +2,25 @@ class Goldengrove.Views.UsersShow extends Backbone.View
 
   template: HandlebarsTemplates['users/show']
 
-  initialize: (options) =>
+  initialize: (options) ->
     @user = options.model
-    @user.set_poem_collection()
 
-  render: =>
-    user_json = @user.toJSON()
-    $(@el).html @template user_json
-    @$('.titles').addClass("small-block-grid-#{user_json.titles.length}")
+  render: ->
+    @$el.html @template @user.toJSON()
+    @render_titles()
     @render_poems()
     this
 
-  render_poems: =>
-    poems = @user.poems
+  render_titles: ->
+    titles = @user.get('titles')
+    if titles
+      titles.each (title) =>
+        view = new Goldengrove.Views.Title(model: title)
+        @$('.titles').append(view.render().el)
+    @$('.titles').addClass("small-block-grid-#{@user.get('titles').length}")
+
+  render_poems: ->
+    poems = @user.get('poems')
     if poems
       poems.each (poem) =>
         view = new Goldengrove.Views.PoemView(model: poem)
