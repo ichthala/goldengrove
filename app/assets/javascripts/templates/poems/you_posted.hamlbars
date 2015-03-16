@@ -4,8 +4,8 @@
 %h3 Congratulations! You've created a piece of Twitterature!
 {{/if}}
 {{#if collection.models.length}}
-#titles-earned
-  %p You earned a title in the Kingdom of Goldengrove, too!
+%p You earned a title in the Kingdom of Goldengrove, too!
+%ul#titles-earned
 {{/if}}
 %a{{href: '/'}} Home
 %a{{href: '/poems'}} To the Salon
