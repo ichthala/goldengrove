@@ -6,7 +6,9 @@ class Goldengrove.Views.UsersShow extends Backbone.View
     @user = options.model
 
   render: ->
-    @$el.html @template @user.toJSON()
+    @$el.html @template _.extend @user.toJSON(),
+      titles_empty: @user.get('titles')?.length == 0,
+      poems_empty: @user.get('poems')?.length == 0
     @render_titles()
     @render_poems()
     this
