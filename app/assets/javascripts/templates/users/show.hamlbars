@@ -1,8 +1,3 @@
-%h1 {{twitter_handle}}
-.row
-  .small-10.small-offset-1.large-6.large-offset-3.columns
-    .bio Bio: {{bio}}
-
 %h1 {{twitter_handle}}'s Titles
 .row
   .small-10.small-offset-1.large-6.large-offset-3.columns

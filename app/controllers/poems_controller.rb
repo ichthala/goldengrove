@@ -3,7 +3,8 @@ require 'title_checker'
 class PoemsController < ApplicationController
 
   def index
-    # todoxxx this is probably slow, preload associations?
+    # TODO: this is probably slow, preload associations?
+    # TODO: DON'T INCLUDE TWITTER SECRETS IN USER JSON!!!
     @poems = Poem.find(:all, :order => 'id desc', limit: 30).each.as_json(include: [:user])
 
     respond_to do |format|

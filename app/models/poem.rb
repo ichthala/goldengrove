@@ -22,7 +22,7 @@ class Poem < ActiveRecord::Base
   # poem when it's included as a nested resource
   def serializable_hash(opts = {})
     hash = super(opts)
-    # binding.pry
+    # TODO: move this into a presenter
     h = hash.merge(
       { "created_at_str" => pretty_timestamp(:created_at) }
     )
