@@ -8,4 +8,5 @@ class Goldengrove.Models.Poem extends Backbone.Model
       text_for_display: @generate_display_text()
 
   generate_display_text: ->
-    @get('text').replace("\n", "<br>")
+    # TODO: sanitize input
+    @get('text').split("\n").join("<br>")
