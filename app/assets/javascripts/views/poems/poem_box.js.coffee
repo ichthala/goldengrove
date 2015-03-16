@@ -34,7 +34,7 @@ class Goldengrove.Views.PoemBox extends Backbone.View
 
   newline: (e) =>
     @row_num += 1
-    @$('#blotter').append("<div class=\"row\" id=\"row-#{@row_num}\"></div>")
+    @$('#blotter').append("<div class=\"row\"><div class=\"small-12 columns\" id=\"row-#{@row_num}\"></div></div>")
 
   clear_poem: =>
     # xxx do not like
