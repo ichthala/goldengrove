@@ -19,5 +19,6 @@ class Goldengrove.Views.Tweet extends Backbone.View
     _.each words, (word) =>
       word_view = new Goldengrove.Views.TweetWord
         word: word
+        className: 'tweet-word'
         poem_box: @poem_box
       @$('.tweet').append(word_view.render().el)

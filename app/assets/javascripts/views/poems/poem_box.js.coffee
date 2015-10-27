@@ -30,6 +30,7 @@ class Goldengrove.Views.PoemBox extends Backbone.View
     punc = $(e.currentTarget).html()
     punc_view = new Goldengrove.Views.TweetWord
       word: punc
+      className: 'tweet-word punc'
     @$("#row-#{@row_num}").append(punc_view.render().el)
 
   newline: (e) =>
@@ -42,13 +43,19 @@ class Goldengrove.Views.PoemBox extends Backbone.View
     @$('#blotter').append("<div class=\"row\" id=\"row-1\"></div>")
 
   # xxx combine save_poem and save_and_share into one
+  # xxx this should be handled in the Poem model
+  # also, major refactoring needed
   save_poem: (e) =>
     text = ""
-    _.each @$('#blotter').children(), (element) =>
-      if $(element).hasClass('punc')
-        text = text.trim() + element.innerText + "\n"
-      else
-        text += element.innerText + "\n"
+    _.each @$('#blotter').children(), (line) =>
+      _.each $(line).find('.tweet-word'), (word) =>
+        word = $(word)
+        if word.hasClass('punc')
+          text = text.trim() + word.text() + ' '
+        else
+          text += word.text() + ' '
+      text = text.trim() + "\n"
+
     text = text.trim()
     $.ajax
       url: '/poems'
