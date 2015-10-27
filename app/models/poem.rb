@@ -1,5 +1,5 @@
 class Poem < ActiveRecord::Base
-  attr_accessible :source_user, :text
+  # attr_accessible :source_user, :text
 
   belongs_to :user
 

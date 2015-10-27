@@ -34,7 +34,7 @@ class PoemsController < ApplicationController
   def create
     # xxx refac
     params[:poem][:source_user] = "@#{params[:poem][:source_user]}"
-    @poem = Poem.new(params[:poem])
+    @poem = Poem.new(poem_params)
     @poem.user = current_user
 
     if @poem.save
@@ -57,6 +57,12 @@ class PoemsController < ApplicationController
       format.html { redirect_to poems_url }
       format.json { head :no_content }
     end
+  end
+
+  private
+
+  def poem_params
+    params.require(:poem).permit(:source_user, :text)
   end
 
 end

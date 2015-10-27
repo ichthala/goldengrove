@@ -1,4 +1,26 @@
 Goldengrove::Application.routes.draw do
+
+  root to: 'welcome#index'
+
+  match '/auth/twitter/callback', to: 'sessions#create', via: [:get, :post]
+  match 'signout', to: 'sessions#destroy', as: 'signout', via: [:get, :post]
+  # todoxxx change this redirect to something specific
+  match 'auth/failure', to: redirect('/'), via: [:get, :post]
+
+  get '/users' => 'users#index'
+  get '/users/:id' => 'users#show', as: 'profile'
+
+  get '/poems' => 'poems#index'
+  get '/poems/new' => 'poems#new'
+  post '/poems' => 'poems#create'
+
+  get '/source_users' => 'source_users#index'
+  get '/source_users/get_tweets' => 'source_users#get_tweets'
+
+  get '/about' => 'welcome#about'
+  get '/contact' => 'welcome#contact'
+
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
@@ -39,7 +61,7 @@ Goldengrove::Application.routes.draw do
   #       get 'recent', on: :collection
   #     end
   #   end
-  
+
   # Example resource route with concerns:
   #   concern :toggleable do
   #     post 'toggle'

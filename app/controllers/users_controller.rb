@@ -81,4 +81,14 @@ class UsersController < ApplicationController
       format.json { head :no_content }
     end
   end
+
+  private
+
+  def user_params
+    params.require(:user).permit(
+      :twitter_handle, :email,
+      :name, :bio, :url, :word_count,
+      :twitter_oauth_token,
+      :twitter_oauth_secret)
+  end
 end
