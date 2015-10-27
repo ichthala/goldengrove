@@ -9,19 +9,22 @@ class Goldengrove.Views.UsersShow extends Backbone.View
     @$el.html @template _.extend @user.toJSON(),
       titles_empty: @user.get('titles')?.length == 0,
       poems_empty: @user.get('poems')?.length == 0
-    @render_titles()
-    @render_poems()
+    @_render_titles()
+    @_render_poems()
     this
 
-  render_titles: ->
+  _render_titles: ->
     titles = @user.get('titles')
     if titles
       titles.each (title) =>
         view = new Goldengrove.Views.Title(model: title)
         @$('.titles').append(view.render().el)
-    @$('.titles').addClass("small-block-grid-#{@user.get('titles').length}")
 
-  render_poems: ->
+    small_block_grid_size = Math.min(titles.length, 2)
+    medium_block_grid_size = Math.min(titles.length, 3)
+    @$('.titles').addClass("small-block-grid-#{small_block_grid_size} medium-block-grid-#{medium_block_grid_size}")
+
+  _render_poems: ->
     poems = @user.get('poems')
     if poems
       poems.each (poem) =>
