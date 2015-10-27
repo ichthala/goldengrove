@@ -12,7 +12,7 @@ class TwitterUser < ActiveRecord::Base
       while offsets.include?(offset)
         offset = rand(count)
       end
-      usernames << TwitterUser.first(offset: offset).screen_name
+      usernames << TwitterUser.limit(1).offset(offset).first.screen_name
       offsets << offset
     end
 
