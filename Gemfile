@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
-ruby '1.9.3'
+ruby '2.2.3'
 
-gem 'rails', '3.2.13'
+gem 'rails', '4.0.0'
 
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
@@ -15,20 +15,15 @@ gem 'omniauth-twitter'
 gem 'foundation-rails'
 gem 'haml-rails'
 gem 'thin'
+gem 'sass-rails'
+gem 'coffee-rails'
+gem 'handlebars_assets'
+gem 'hamlbars'
 
-# Gems used only for assets and not required
-# in production environments by default.
-group :assets do
-  gem 'sass-rails',   '~> 3.2.3'
-  gem 'coffee-rails', '~> 3.2.1'
-  gem 'handlebars_assets'
-  gem 'hamlbars'
+# See https://github.com/sstephenson/execjs#readme for more supported runtimes
+# gem 'therubyracer', :platforms => :ruby
 
-  # See https://github.com/sstephenson/execjs#readme for more supported runtimes
-  # gem 'therubyracer', :platforms => :ruby
-
-  gem 'uglifier', '>= 1.0.3'
-end
+gem 'uglifier', '>= 1.0.3'
 
 group :production do
   gem 'pg'
@@ -50,7 +45,7 @@ group :development, :test do
   gem 'factory_girl_rails'
   gem 'pry-rails'           # Causes rails console to open pry
                             # https://github.com/rweng/pry-rails
-  gem 'pry-debugger'        # Adds step, next, finish, and continue commands and breakpoints
+  # gem 'pry-debugger'        # Adds step, next, finish, and continue commands and breakpoints
                             # https://github.com/nixme/pry-debugger
   # gem 'pry-stack_explorer'  # Navigate the call-stack
                             # https://github.com/pry/pry-stack_explorer
