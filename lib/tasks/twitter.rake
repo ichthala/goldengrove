@@ -24,7 +24,8 @@ namespace :twitter do
       'wescarr17',
       'seraphicmanta',
       'catlandbooks',
-      'stefanoblackest'
+      'stefanoblackest',
+      'auntbeast'
     ]
 
     users_i_like.each do |user|
