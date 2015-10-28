@@ -6,9 +6,8 @@ class PoemsController < ApplicationController
     # TODO: this is probably slow, preload associations?
     # TODO: DON'T INCLUDE TWITTER SECRETS IN USER JSON!!!
     page = params[:page].to_i
-    page_size = 3
+    page_size = 4
     @poems = Poem.order(created_at: :desc).limit(page_size).offset(page_size * page).each.as_json(include: [:user])
-    binding.pry
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @poems }
