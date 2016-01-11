@@ -43,7 +43,6 @@ class Goldengrove.Views.PoemBox extends Backbone.View
     @$('#blotter').append("<div class=\"row\" id=\"row-1\"></div>")
 
   # xxx combine save_poem and save_and_share into one
-  # xxx this should be handled in the Poem model
   # also, major refactoring needed
   save_poem: (e) =>
     text = ""
@@ -57,19 +56,12 @@ class Goldengrove.Views.PoemBox extends Backbone.View
       text = text.trim() + "\n"
 
     text = text.trim()
-    $.ajax
-      url: '/poems'
-      type: 'POST'
-      dataType: 'json'
-      data:
-        poem:
-          text: text
-          source_user: Goldengrove.current_source_user.get('screen_name')
-        share: false
-      complete: (data) =>
-        @render_you_posted
-          collection: new Goldengrove.Collections.Titles(data.responseJSON)
-          shared: false
+
+    poem = new Goldengrove.Models.Poem(text: text)
+    poem.save (data) =>
+      @render_you_posted
+        collection: new Goldengrove.Collections.Titles(data.responseJSON)
+        shared: false
 
   save_and_share: (e) =>
     text = ""
