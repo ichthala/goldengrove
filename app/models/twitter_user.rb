@@ -3,20 +3,7 @@ class TwitterUser < ActiveRecord::Base
 
   # xxx add error for case n < TwitterUser.all.size
   def self.sample(n = 10)
-    usernames = []
-    offsets = Set.new
-    count = TwitterUser.count
-
-    n.times do |num|
-      offset = rand(count)
-      while offsets.include?(offset)
-        offset = rand(count)
-      end
-      usernames << TwitterUser.limit(1).offset(offset).first.screen_name
-      offsets << offset
-    end
-
-    usernames
+    limit(n).order('RANDOM()').pluck('screen_name')
   end
 
 end

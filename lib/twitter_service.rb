@@ -10,23 +10,22 @@ class TwitterService
   end
 
   def get_users(n)
-    usernames = TwitterUser.sample(n)
+    # Retrieve more usernames than you'll need because some may error out
+    usernames = TwitterUser.sample(n + 20)
     users = []
 
-    usernames.each do |username|
-      user = nil
-      i = 0
-      while user.nil? && i < 5
+    while users.size < n
+      if username = usernames.pop
         begin
           user = @client.user(username)
+          users << user
         rescue Twitter::Error => e
           puts "\n\n\n\n\nWE GOT AN ERROR"
           puts e.message
-        ensure
-          i += 1
         end
+      else # We ran out of usernames, retrieve more
+        usernames = TwitterUser.sample(n + 20)
       end
-      users << user
     end
 
     users
