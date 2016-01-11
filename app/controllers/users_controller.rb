@@ -17,7 +17,7 @@ class UsersController < ApplicationController
       format.html { render :index }
       format.json do
         # xxx: include the poems in reverse chronological order
-        @user = User.find(params[:id]).to_json(include: [:poems, :titles])
+        @user = User.find(params[:id])
         render json: @user
       end
     end

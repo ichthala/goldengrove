@@ -1,6 +1,4 @@
 class Poem < ActiveRecord::Base
-  # attr_accessible :source_user, :text
-
   belongs_to :user
 
   validates :user, presence: true
