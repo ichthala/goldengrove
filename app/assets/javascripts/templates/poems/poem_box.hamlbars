@@ -21,3 +21,10 @@
 #save-buttons.row.button-group.small-12.large-6.small-centered.columns.text-center
   %a#poem-submit.button.radius Save
   %a#poem-share.button.radius Save and Tweet
+
+%a.hide#show-modal-link{"data-reveal-id" => "myModal", :href => "#"} Click Me For A Modal
+#myModal.reveal-modal{"aria-hidden" => "true", "aria-labelledby" => "modalTitle", "data-reveal" => "", :role => "dialog"}
+  %h2#modalTitle Awesome. I have it.
+  %p.lead Your couch.  It is mine.
+  %p I'm a cool paragraph that lives inside of an even cooler modal. Wins!
+  %a.close-reveal-modal{"aria-label" => "Close"} ×

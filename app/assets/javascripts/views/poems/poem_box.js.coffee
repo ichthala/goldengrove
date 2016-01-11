@@ -10,8 +10,8 @@ class Goldengrove.Views.PoemBox extends Backbone.View
     'click #clear': 'clear_poem'
     'click #newline': 'newline'
     'click .punc': 'append_punc'
-    'click #poem-submit': 'save_poem'
-    'click #poem-share': 'save_and_share'
+    'click #poem-submit': 'poem_submit'
+    'click #poem-share': 'poem_submit'
 
   initialize: (options) =>
     @row_num = 1
@@ -41,6 +41,13 @@ class Goldengrove.Views.PoemBox extends Backbone.View
     # xxx do not like
     @$('#blotter').children().remove()
     @$('#blotter').append("<div class=\"row\" id=\"row-1\"></div>")
+
+  # todoxxx: convert to promises
+  poem_submit: (e) ->
+    Goldengrove.helpers.is_user_signed_in(@save_poem, @show_modal)
+
+  show_modal: ->
+    $('#show-modal-link').trigger('click');
 
   # xxx combine save_poem and save_and_share into one
   # also, major refactoring needed

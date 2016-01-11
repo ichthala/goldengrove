@@ -7,6 +7,8 @@ Goldengrove::Application.routes.draw do
   # todoxxx change this redirect to something specific
   match 'auth/failure', to: redirect('/'), via: [:get, :post]
 
+  get 'sessions/signed_in', to: 'sessions#signed_in'
+
   get '/users' => 'users#index'
   get '/users/:id' => 'users#show', as: 'profile'
 

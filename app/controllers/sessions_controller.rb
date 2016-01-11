@@ -11,4 +11,10 @@ class SessionsController < ApplicationController
     redirect_to root_url, notice: 'Signed out!'
   end
 
+  def signed_in
+    respond_to do |format|
+      format.json { render json: {user_signed_in: session[:user_id].present?} }
+    end
+  end
+
 end
