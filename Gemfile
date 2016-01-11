@@ -19,6 +19,7 @@ gem 'sass-rails'
 gem 'coffee-rails'
 gem 'handlebars_assets'
 gem 'hamlbars'
+gem 'active_model_serializers', :git => 'https://github.com/rails-api/active_model_serializers', :branch => 'master'
 
 # See https://github.com/sstephenson/execjs#readme for more supported runtimes
 # gem 'therubyracer', :platforms => :ruby

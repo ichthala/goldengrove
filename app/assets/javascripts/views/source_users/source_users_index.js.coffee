@@ -17,6 +17,8 @@ class Goldengrove.Views.SourceUsersIndex extends Backbone.View
   repopulate_source_users: =>
     @collection.fetch
       reset: true
+      complete: ->
+        console.log 'done'
 
   render: =>
     $(@el).empty()
