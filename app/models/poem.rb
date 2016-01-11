@@ -10,32 +10,4 @@ class Poem < ActiveRecord::Base
     poem.user.add_to_word_count(word_count)
   end
 
-  def as_json(opts = {})
-    super(opts).merge(
-      { "created_at_str" => pretty_timestamp(:created_at) }
-    )
-  end
-
-  # override serializable_hash in order to properly represent
-  # poem when it's included as a nested resource
-  def serializable_hash(opts = {})
-    hash = super(opts)
-    # TODO: move this into a presenter
-    h = hash.merge(
-      { "created_at_str" => pretty_timestamp(:created_at) }
-    )
-    h
-  end
-
-  private
-
-  def pretty_timestamp(property_name)
-    if (time = self.send(property_name)).is_a? ActiveSupport::TimeWithZone
-      time.strftime("%B %-e, %Y, %-l:%M %P")
-    else
-      Rails.logger.warn "Warning: non-TimeWithZone object passed to Poem#pretty_timestamp"
-      time.to_s
-    end
-  end
-
 end
