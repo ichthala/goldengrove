@@ -14,11 +14,6 @@ namespace :twitter do
       config.auth_method        = :oauth
     end
 
-    puts "about to stream"
-
-    client = TweetStream::Client.new
-    puts client
-
     users_i_like = [
       'ichthala',
       'wescarr17',
@@ -33,14 +28,19 @@ namespace :twitter do
       TwitterUser.create(screen_name: user)
     end
 
+    puts "About to stream."
+
+    client = TweetStream::Client.new
+
+    username_count = 0
     client.sample do |status|
       if status.lang == "en"
         puts "#{status.user.screen_name}"
         TwitterUser.create(screen_name: status.user.screen_name)
+        username_count += 1
       end
+      client.stop if username_count >= 5000
     end
-
-
 
     client.on_limit do |skip_count|
       # do something
