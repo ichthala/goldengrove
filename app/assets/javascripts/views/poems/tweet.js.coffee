@@ -15,7 +15,7 @@ class Goldengrove.Views.Tweet extends Backbone.View
     this
 
   render_tweet_words: =>
-    words = @text.split(' ')
+    words = @text.split(/\s+/)
     _.each words, (word) =>
       word_view = new Goldengrove.Views.TweetWord
         word: word
