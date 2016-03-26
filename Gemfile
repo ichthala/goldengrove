@@ -42,7 +42,7 @@ end
 
 group :development, :test do
   gem 'sqlite3'
-  gem 'rspec'
+  gem 'teaspoon-jasmine'
   gem 'factory_girl_rails'
   gem 'pry-rails'           # Causes rails console to open pry
                             # https://github.com/rweng/pry-rails
@@ -62,7 +62,7 @@ group :development, :test do
                             # https://github.com/dejan/rails_panel/tree/master/meta_request
   gem 'rails-erd'           # Diagrams your models. NOTE! $ brew install graphviz
                             # https://github.com/voormedia/rails-erd
-  gem 'rspec-rails', '~> 2.0' # Rspec-rails is a testing framework for Rails 3.x and 4.x.
+  gem 'rspec-rails', '~> 3.0' # Rspec-rails is a testing framework for Rails 3.x and 4.x.
 end
 
 # To use ActiveModel has_secure_password
