@@ -1,7 +1,7 @@
 class TwitterService
 
-  def initialize
-    @client = Twitter::REST::Client.new do |config|
+  def initialize(client)
+    @twitter = client || Twitter::REST::Client.new do |config|
       config.consumer_key        = ENV["CONSUMER_KEY"]
       config.consumer_secret     = ENV["CONSUMER_SECRET"]
       config.access_token        = ENV["ACCESS_TOKEN"]
@@ -17,10 +17,10 @@ class TwitterService
     while users.size < n
       if username = usernames.pop
         begin
-          user = @client.user(username)
+          user = @twitter.user(username)
           users << user
         rescue Twitter::Error => e
-          puts "\n\n\n\n\nWE GOT AN ERROR"
+          puts "[TwitterService#get_users] Twitter returned an error:"
           puts e.message
         end
       else # We ran out of usernames, retrieve more
@@ -32,7 +32,7 @@ class TwitterService
   end
 
   def get_tweets(username, n = 30)
-    @client.user_timeline(username, count: n)
+    @twitter.user_timeline(username, count: n)
   end
 
   def share(options)

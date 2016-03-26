@@ -5,36 +5,45 @@ describe TwitterService do
 
   describe '#get_users' do
 
+    let :client do
+      double('Twitter::REST::Client', user: 'user')
+    end
+
+    let :ts do
+      TwitterService.new(client)
+    end
+
     before do
-      @ts = TwitterService.new
+      allow(TwitterUser).to receive(:sample) { ['username1', 'username2'] }
     end
 
-    # xxx not sure how i feel about this spec, since it doesn't test
-    # interaction with the db
-    it 'returns expected users' do
-      users = [
-        Twitter::User.new(:id => 1, :screen_name => 'foo_1'),
-        Twitter::User.new(:id => 2, :screen_name => 'foo_2')
-      ]
-
-      Twitter::REST::Client.any_instance.stub(:user).and_return(*users)
-
-      expect(@ts.get_users 2).to eq users
+    it 'pulls the expected number of usernames from the database' do
+      user_count = 2
+      expect(TwitterUser).to receive(:sample).once.with(user_count + 20)
+      ts.get_users(user_count)
     end
 
-    context 'when username returns an error' do
+    it 'requests users from Twitter' do
+      expect(client).to receive(:user).with('username1')
+      expect(client).to receive(:user).with('username2')
+      ts.get_users(2)
+    end
 
-      it 'returns given number of users' do
-        user = Twitter::User.new(:id => 1, :screen_name => 'foo_1')
+    context 'when a username returns an error' do
 
+      let :client do
+        dbl = double('Twitter::REST::Client')
         times_called = 0
-        Twitter::REST::Client.any_instance.stub(:user).and_return do
+        dbl.stub(:user) do
           times_called += 1
           raise Twitter::Error if times_called <= 1
-          user
+          "user#{times_called}"
         end
+        dbl
+      end
 
-        expect(@ts.get_users 1).to eq [user]
+      it 'returns given number of users' do
+        expect(ts.get_users(2)).to eq(['user2', 'user3'])
       end
 
     end
