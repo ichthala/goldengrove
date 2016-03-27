@@ -42,20 +42,4 @@ describe Poem do
     expect(poem.user.word_count).to eq 4
   end
 
-  describe '#as_json' do
-    it 'outputs created_at_str in correct format' do
-      Timecop.freeze(Time.local(2014, 5, 4, 5, 5, 0))
-      poem = create(:poem)
-      expect(poem.as_json["created_at_str"]).to eq("May 4, 2014, 9:05 am")
-    end
-  end
-
-  describe '#serializable_hash' do
-    it 'outputs created_at in correct format' do
-      Timecop.freeze(Time.local(2014, 5, 4, 5, 5, 0))
-      poem = create(:poem)
-      expect(poem.serializable_hash["created_at_str"]).to eq("May 4, 2014, 9:05 am")
-    end
-  end
-
 end
