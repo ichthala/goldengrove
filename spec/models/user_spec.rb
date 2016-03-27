@@ -9,7 +9,8 @@ describe User do
 
   it 'is invalid without a twitter handle' do
     user = build(:user, twitter_handle: nil)
-    expect(user).to have(1).errors_on(:twitter_handle)
+    user.valid?
+    expect(user.errors[:twitter_handle].size).to eq 1
   end
 
   it 'initializes with word_count of 0' do
