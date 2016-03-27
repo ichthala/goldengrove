@@ -9,22 +9,26 @@ describe Poem do
 
   it 'is invalid without a user' do
     poem = build(:poem, user: nil)
-    expect(poem).to have(1).errors_on(:user)
+    poem.valid?
+    expect(poem.errors[:user].size).to eq 1
   end
 
   it 'is invalid without a source user' do
     poem = build(:poem, source_user: nil)
-    expect(poem).to have(1).errors_on(:source_user)
+    poem.valid?
+    expect(poem.errors[:source_user].size).to eq 1
   end
 
   it 'is invalid without text' do
     poem = build(:poem, text: nil)
-    expect(poem).to have(1).errors_on(:text)
+    poem.valid?
+    expect(poem.errors[:text].size).to eq 1
   end
 
   it 'is invalid with text of length 0' do
     poem = build(:poem, text: '')
-    expect(poem).to have(1).errors_on(:text)
+    poem.valid?
+    expect(poem.errors[:text].size).to eq 1
   end
 
   it 'is invalid with text of length >140' do
