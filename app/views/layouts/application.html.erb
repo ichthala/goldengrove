@@ -1,55 +1,60 @@
 <!DOCTYPE html>
-<html>
-<head>
-  <title>Goldengrove</title>
-  <%= stylesheet_link_tag    "application", :media => "all" %>
-  <%= javascript_include_tag "application" %>
-  <%= csrf_meta_tags %>
-  <link href='http://fonts.googleapis.com/css?family=Princess+Sofia|Niconne|Cookie|Great+Vibes|Sacramento|Norican|Qwigley|Stalemate|Rochester|Montez|Parisienne|Mountains+of+Christmas|Clicker+Script|Rouge+Script|Lovers+Quarrel|Open+Sans' rel='stylesheet' type='text/css'>
-</head>
-<body>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-<!-- Make this Haml somehow -->
-<nav class="top-bar" data-topbar>
-  <ul class="title-area">
-    <li class="name" id="main-title">
-      <h1><%= link_to 'Goldengrove', '/' %></h1>
-    </li>
-    <li class="toggle-topbar menu-icon">
-      <a href="#"><span>Menu</span></a>
-    </li>
-  </ul>
+    <title>Goldengrove</title>
+    <link href='http://fonts.googleapis.com/css?family=Princess+Sofia|Niconne|Cookie|Great+Vibes|Sacramento|Norican|Qwigley|Stalemate|Rochester|Montez|Parisienne|Mountains+of+Christmas|Clicker+Script|Rouge+Script|Lovers+Quarrel|Open+Sans' rel='stylesheet' type='text/css'>
 
-  <section class="top-bar-section">
+    <%= stylesheet_link_tag    "application" %>
+    <%= javascript_include_tag "application", 'data-turbolinks-track' => true %>
+    <%= csrf_meta_tags %>
+  </head>
 
-    <!-- Right Nav Section -->
-    <ul class="right">
-      <% if current_user %>
-        <li>
-          <%= link_to current_user.twitter_handle, profile_path(current_user.id) %>
+  <body>
+    <!-- Make this Haml somehow -->
+    <nav class="top-bar" data-topbar>
+      <ul class="title-area">
+        <li class="name" id="main-title">
+          <h1><%= link_to 'Goldengrove', '/' %></h1>
         </li>
-        <li>
-          <%= link_to 'Sign out', signout_path %>
+        <li class="toggle-topbar menu-icon">
+          <a href="#"><span>Menu</span></a>
         </li>
-      <% else %>
-        <li>
-          <%= link_to 'Sign in with Twitter', '/auth/twitter' %>
-        </li>
-      <% end %>
-    </ul>
+      </ul>
 
-    <!-- Left Nav Section -->
-    <ul class="left">
-      <li><a href="#"><%= link_to 'Salon', '/poems' %></a></li>
-      <li><a href="#"><%= link_to 'Create', '/poems/new' %></a></li>
-      <li><a href="#"><%= link_to 'About', '/about' %></a></li>
-    </ul>
+      <section class="top-bar-section">
 
-  </section>
+        <!-- Right Nav Section -->
+        <ul class="right">
+          <% if current_user %>
+            <li>
+              <%= link_to current_user.twitter_handle, profile_path(current_user.id) %>
+            </li>
+            <li>
+              <%= link_to 'Sign out', signout_path %>
+            </li>
+          <% else %>
+            <li>
+              <%= link_to 'Sign in with Twitter', '/auth/twitter' %>
+            </li>
+          <% end %>
+        </ul>
 
-</nav>
+        <!-- Left Nav Section -->
+        <ul class="left">
+          <li><a href="#"><%= link_to 'Salon', '/poems' %></a></li>
+          <li><a href="#"><%= link_to 'Create', '/poems/new' %></a></li>
+          <li><a href="#"><%= link_to 'About', '/about' %></a></li>
+        </ul>
 
-<%= yield %>
+      </section>
 
-</body>
+    </nav>
+
+
+    <%= yield %>
+
+  </body>
 </html>
