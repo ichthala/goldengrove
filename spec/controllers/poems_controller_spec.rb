@@ -25,20 +25,6 @@ describe PoemsController do
     end
   end
 
-  describe 'GET #show' do
-    it 'assigns the requested poem to @poem' do
-      poem = create(:poem)
-      get :show, id: poem
-      expect(assigns(:poem)).to eq(poem)
-    end
-
-    it 'renders the show view' do
-      poem = create(:poem)
-      get :show, id: poem
-      expect(response).to render_template :show
-    end
-  end
-
   describe 'GET #random_users' do
     it 'populates an array of 9 random users + horse_ebooks'
   end
